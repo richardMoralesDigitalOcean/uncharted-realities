@@ -1,0 +1,93 @@
+<div class="appContainer container-fluid">
+    <div class="row logoContainer">
+        <div class="col">
+            <button id="phoneNumBtn" style="margin-right: 10px; width: 30px;
+                height: 30px;
+                text-align: center;
+                padding: 6px 0;
+                font-size: 12px;
+                line-height: 1.428571429;
+                border-radius: 15px; background-color: transparent;
+                border-color: white;" type="button" class="btn btn-secondary btn-circle">
+                <i class="fas fa-bars nav-menu-toggle-btn" (click)="toggleMenu()"></i>
+            </button>
+        </div>
+        <div class="col">
+            <img class="logo" src="assets/Images/logos/ur_logo_white.svg" onerror="this.src='assets/Images/logos/ur_logo_white.png'">
+        </div>
+        <div class="col">
+            <div style="float: right; margin-top: 2px; margin-bottom: 2px;" 
+                class="btn-group mr-2" role="group" aria-label="First group">
+                <button id="phoneNumBtn" style="margin-right: 10px; width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    padding: 6px 0;
+                    font-size: 12px;
+                    line-height: 1.428571429;
+                    border-radius: 15px; background-color: transparent;
+                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
+                        <i class="fas fa-phone"></i>
+                    </button>
+                    <button id="facebookBtn" style="margin-right: 10px; width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    padding: 6px 0;
+                    font-size: 12px;
+                    line-height: 1.428571429;
+                    border-radius: 15px; background-color: transparent;
+                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                    <button id="twitterBtn" style="margin-right: 10px; width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    padding: 6px 0;
+                    font-size: 12px;
+                    line-height: 1.428571429;
+                    border-radius: 15px; background-color: transparent;
+                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                    <button style="margin-right: 10px; width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    padding: 6px 0;
+                    font-size: 12px;
+                    line-height: 1.428571429;
+                    border-radius: 15px; background-color: transparent;
+                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
+                        <i class="fab fa-google-plus-g"></i>
+                    </button>
+                    <button id="instagramBtn" style="width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    padding: 6px 0;
+                    font-size: 12px;
+                    line-height: 1.428571429;
+                    border-radius: 15px; background-color: transparent;
+                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
+                        <i class="fab fa-instagram"></i>
+                    </button>
+            </div>
+        </div>
+    </div>
+    <div class="row content no-gutters">
+        <div class="col-sm-2 navContainer">
+            <nav class="nav flex-column sideNav">
+                <!--<a class="nav-link hidden" href="#"><b>Hidden</b></a>-->
+                <a routerLink="/home" routerLinkActive="active" id="home" class="nav-link active" (click) = "navigation($event)">Home</a>
+                <a routerLink="/worlds" routerLinkActive="active" id="worlds" class="nav-link" (click) = "navigation($event)">Worlds</a>
+                <a routerLink="/vendors" routerLinkActive="active" id="vendors" class="nav-link" (click) = "navigation($event)">Vendors</a>
+                <a routerLink="/about" routerLinkActive="active" id="about" class="nav-link" (click) = "navigation($event)">About</a>
+                <a routerLink="/contact" routerLinkActive="active" id="contact" class="nav-link" (click) = "navigation($event)">Contact Us</a>
+                <!--<a class="nav-link hidden" href="#"><b style=''>Hidden</b></a>-->
+            </nav>
+        </div>
+        <div class="col content-area">
+            
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+

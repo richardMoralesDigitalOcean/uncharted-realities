@@ -1,0 +1,53 @@
+.appContainer{
+    /*background: #222629;*/
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+.appContainer>.content{
+    display: flex;
+    align-items: center;
+    height: 88vh;
+
+}
+.logoContainer{
+    height: 10vh;
+    align-items: center;
+    padding-top: 5px;
+    background: black;
+}
+.logo{
+    margin-top: 5px;
+    height: 7vh;
+}
+.nav-menu-toggle-btn{
+    font-size: 1.5em;
+    color: white;
+}
+.phoneNum{
+    font-family: 'Sanchez', serif;
+    font-size: 1.5em;
+    color: white;
+}
+.sideNav>a.active{
+   /* border-left: 2px solid #86c232;*/
+    font-family: 'Sanchez', serif;
+    font-size: 1.5em;
+}
+.sideNav>a{
+    border-left:2px solid #6b6e70;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Sanchez', serif; 
+    color: white;
+}
+.sideNav>a:hover{
+    color: #61892f;
+}
+.sideNav>a.hidden>b{
+    visibility: hidden;
+}
+.sideNav>a.hidden{
+    height: 5vh;
+    cursor: default; 
+}

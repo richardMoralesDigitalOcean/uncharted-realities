@@ -10,3 +10,21 @@
 .carousel-text p{
     color:white
 }
+.card{
+    border: 2px solid #86C232;
+}
+.card-link{
+    color: #61892f;
+    font-weight: bold;
+}
+.card-link-container{
+    display: flex;
+    justify-content: center;
+}
+.btn-invisible{
+    background: transparent;
+    border: none;
+}
+.neon-bold-green{
+    color: #86C232
+}

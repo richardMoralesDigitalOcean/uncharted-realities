@@ -2,6 +2,56 @@
     <img src='assets/Images/backgrounds/abstract_polygonal/abstract_polygonal_black.PNG'>
 </div>
 <div class="container-fluid">
+    <ngu-carousel
+        [inputs]="carouselOne"
+        (carouselLoad)="myfunc($event)">
+            <ngu-item NguCarouselItem>
+                <div class='container-fluid'>
+                    <div class='row' style='justify-content: center'>
+                           <img class='carousel-img' src='assets/Images/background-headset2.PNG'>
+                    </div>
+                    <div class='row' style='justify-content: center'>
+                        <div class='col-sm-8 carousel-text'>
+                            <h5>The Premier Virtual Reality Destination </h5>
+                            <p>Using cutting edge technology, we enable you to enter new worlds</p>
+                        </div>
+                    </div>
+                </div>
+            </ngu-item>
+            <ngu-item NguCarouselItem>
+                <div class='container-fluid'>
+                    <div class='row'>
+                        <div class='col-sm-12'>
+                            <img class='carousel-img' src='assets/Images/virtual-reality-background.jpg'>
+                        </div>
+                    </div>
+                    <div class='row' style='justify-content: center'>
+                        <div class='col-sm-8 carousel-text'>
+                            <h5>Cutting Edge Technology</h5>
+                            <p>Each of our worlds is powered by the latest and greatest VR technology</p>
+                        </div>
+                    </div>
+                </div>
+            </ngu-item>
+            <ngu-item NguCarouselItem>
+                <div class='container-fluid'>
+                    <div class='row'>
+                        <div class='col-sm-12'>
+                          <img class='carousel-img' src="assets/Images/background-headset.PNG">
+                        </div>
+                    </div>
+                    <div class='row' style='justify-content: center'>
+                        <div class='col-sm-8 carousel-text'>
+                            <h5>Your Imagination Brought to Life</h5>
+                            <p>Our games and experiences bring your imagination to life like never before</p>
+                        </div>
+                    </div>
+                </div>
+            </ngu-item>
+          <button style="display:none;" class='btn-btn default' NguCarouselPrev >&lt;</button>
+          <button style="display:none;" class='btn-btn default'   NguCarouselNext >&gt;</button>
+    </ngu-carousel>
+
     <div class="card text-center">
         <div class="card-body">
             <h1 class="card-title" style="margin-top: 5vh; margin-bottom: 5vh">
@@ -16,73 +66,33 @@
                     at their own the same way again! 
             </p>
             <div class="container">
-                <div class="row">
+                <div class="row card-link-container">
+                    <div class="col">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-invisible card-link">
+                                Worlds <i class="fas fa-globe"></i>
+                            </button>
+                            <button type="button" class="btn btn-invisible card-link">
+                                Hours of Operation <i class="fas fa-clock"></i>
+                            </button>
+                        </div>
+                    </div>
+                     <!--   
                     <div class="col-sm-6">
                         <a href="#ourWorlds" class="card-link card-link-light" style="float: right">
-                            Worlds <i class="fas fa-globe"></i>
+                           
                         </a>
                     </div>
                     <div class="col-sm-6">
                         <a href="#contactUs" class="card-link card-link-light"  style="float: left">
                             Hours of Operation <i class="fas fa-clock"></i>
                         </a>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!--<ngu-carousel
-[inputs]="carouselOne"
-(carouselLoad)="myfunc($event)">
-    <ngu-item NguCarouselItem>
-        <div class='container-fluid'>
-            <div class='row'>
-                <div class='col-sm-12'>
-                   <img class='carousel-img' src='assets/Images/background-headset2.PNG'>
-                </div>
-            </div>
-            <div class='row' style='justify-content: center'>
-                <div class='col-sm-8 carousel-text'>
-                    <h5>The Premier Virtual Reality Destination </h5>
-                    <p>Using cutting edge technology, we enable you to enter new worlds</p>
-                </div>
-            </div>
-        </div>
-    </ngu-item>
-    <ngu-item NguCarouselItem>
-        <div class='container-fluid'>
-            <div class='row'>
-                <div class='col-sm-12'>
-                    <img class='carousel-img' src='assets/Images/virtual-reality-background.jpg'>
-                </div>
-            </div>
-            <div class='row' style='justify-content: center'>
-                <div class='col-sm-8 carousel-text'>
-                    <h5>Cutting Edge Technology</h5>
-                    <p>Each of our worlds is powered by the latest and greatest VR technology</p>
-                </div>
-            </div>
-        </div>
-    </ngu-item>
-    <ngu-item NguCarouselItem>
-        <div class='container-fluid'>
-            <div class='row'>
-                <div class='col-sm-12'>
-                  <img class='carousel-img' src="assets/Images/background-headset.PNG">
-                </div>
-            </div>
-            <div class='row' style='justify-content: center'>
-                <div class='col-sm-8 carousel-text'>
-                    <h5>Your Imagination Brought to Life</h5>
-                    <p>Our games and experiences bring your imagination to life like never before</p>
-                </div>
-            </div>
-        </div>
-    </ngu-item>
-  <button class='btn-btn default' NguCarouselPrev class='leftRs'>&lt;</button>
-  <button class='btn-btn default'   NguCarouselNext class='rightRs'>&gt;</button>
-</ngu-carousel>
 
--->
+

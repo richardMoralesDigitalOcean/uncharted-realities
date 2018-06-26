@@ -8,15 +8,15 @@ import * as $ from 'jquery';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  // public carouselOne: NguCarousel;
+   public carouselOne: NguCarousel;
 
   constructor() {  }
   ngOnInit() {
-    /*this.carouselOne = {
+    this.carouselOne = {
       grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
       slide: 1,
       speed: 400,
-      interval: 4000,
+      interval: 10000,
       point: {
         visible: true
       },
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
       touch: true,
       loop: true,
       custom: 'banner'
-    };*/
+    };
   }
   public myfunc(event: Event) {
     // carouselLoad will trigger this funnction when your load value reaches

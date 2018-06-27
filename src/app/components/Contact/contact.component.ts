@@ -7,7 +7,14 @@ import * as $ from 'jquery';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+  form = 'visitor'; // visitor, or vendor
   constructor() {
 
+  }
+  toggleForm(formType): void {
+    /*
+      + Change view based on user clicking 'Visitor' or 'Vendor' button
+    */
+   this.form = formType;
   }
 }

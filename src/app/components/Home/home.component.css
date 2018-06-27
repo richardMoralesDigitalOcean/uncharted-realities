@@ -7,10 +7,14 @@
     background-color: #86C232;
     background-blend-mode: difference;
 }
+.page-background-darken {
+    background-color: rgba(27, 34, 28, 0.432);
+    background-blend-mode: screen;
+}
 .carousel-img{
     height: 50vh;
 }
-.carousel-text{
+.carousel-text{ 
     text-align: center;
 }
 .carousel-text h5{
@@ -40,6 +44,16 @@
 .title-emphasis {
     font-size: 8rem;
 }
+.card-text>.container{
+    padding-left: 0px;
+}
+/*
+.card-text>.container>.row{
+    justify-content: center;
+}
+.card-text>.container>.row>.col-sm-8{
+    text-align: center;
+}*/
 .card-link{
     margin-top: 5vh;
     font-size: 1.5rem;
@@ -59,4 +73,7 @@
 }
 .neon-bold-green{
     color: #86C232
+}
+.experience-list p{
+    color: white
 }

@@ -2,11 +2,11 @@
     <img src='assets/Images/backgrounds/abstract_polygonal/abstract_polygonal_dark_blue.PNG'>
 </div>
 <div class='container'>
-    <div id="worlds" class="background-container">
+    <div id="worlds" class="background-container" *ngIf="view ==='worlds'">
         <div class="container">
-            <div class="row no-gutters" *ngIf="view==='allWorlds'">
+            <div class="row no-gutters">
                 <div class="col-sm-1 nav-btn nav-btn-left">
-                    <button class="btn btn-default"> 
+                    <button *ngIf="pageIndex != 0" class="btn btn-default" (click)="navigateWorlds('left')"> 
                             <i class="fas fa-chevron-left"></i>
                     </button>
                 </div>
@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-4"  *ngFor="let world of activeWorlds;">
-                                        <div class="card card-world" style="margin-top: 5vh;">
+                                        <div class="card card-world" style="margin-top: 5vh;" (click)="showProfile(world)">
                                             <img class="card-img-top" [src]="world.src" alt="Card image cap">
                                             <div class="card-body">
                                                 <p class="card-text world-title center">
@@ -43,12 +43,59 @@
                     </div>
                 </div>
                 <div class="col-sm-1 nav-btn nav-btn-right">
-                    <button class="btn btn-default"> 
+                    <button *ngIf="pageIndex * 6 + 6 <= worlds.length" class="btn btn-default" (click)="navigateWorlds('right')"> 
                         <i class="fas fa-chevron-right"></i>        
                     </button>
                 </div>
             </div>
            
+        </div>
+    </div>
+    <div id="profile" *ngIf="view === 'profile'">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col world-title">
+                                    <h4> {{activeWorld.title}} </h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col world-image">
+                                    <img [src]="activeWorld.src">
+                                    <br />
+                                    <div class="world-info">
+                                        <h5> Developer: </h5> {{ activeWorld.developer }} 
+                                        <h5> Publisher: </h5>{{ activeWorld.publisher }} 
+                                        <h5> Release Date: </h5> {{activeWorld.date}}
+                                        <h5> Genre: </h5> {{activeWorld.genre}}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="col-sm-12 game-bio">
+                                        <h4>Description</h4>
+                                        <br />
+                                        <p>
+                                            {{activeWorld.bio}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="button" 
+                                    class="btn btn-primary btn-return-to-worlds"
+                                    (click)="showWorlds()">
+                                        Worlds
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

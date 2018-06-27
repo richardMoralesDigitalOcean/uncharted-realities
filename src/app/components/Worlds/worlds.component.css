@@ -54,3 +54,19 @@
 .nav-btn button:hover{
     color: #22c7cb;
 }
+#profile{
+    margin-top: 5vh;
+}
+.world-image img{
+    height: 35vh;
+}
+.btn-return-to-worlds{
+    float: right;
+    background:  #1ca4a8;
+}
+.btn-return-to-worlds:hover{
+    background: #116466;
+}
+.game-bio h4{
+    border-bottom: 1px solid #1ca4a8;
+}

@@ -4,6 +4,7 @@ interface Game {
     src: string;
     developer: string;
     publisher: string;
+    genre: string [];
     bio: string;
 }
 const resi7: Game = {
@@ -12,7 +13,8 @@ const resi7: Game = {
     src: 'assets/Images/worlds/resi7.jpg',
     developer: 'Capcom',
     publisher: 'Capcom',
-    bio: `Resident Evil 7: Biohazard[a] is a survival horror game developed and published
+    genre: ['Survival Horror', 'Action'],
+    bio: `Resident Evil 7: Biohazard is a survival horror game developed and published
     by Capcom, released in January 2017 for Windows, PlayStation 4, and Xbox One,
     and in May 2018 for the Nintendo Switch (Japan). Following the more action-oriented
     Resident Evil 5 and Resident Evil 6, Resident Evil 7 returns to the franchise's
@@ -27,6 +29,7 @@ const eve_valkyrie: Game = {
     date: 'Mar 28, 2016',
     developer: 'CCP Games',
     publisher: 'CCP Games & Oculus VR',
+    genre: ['Sci-Fi', 'Action'],
     bio: `EVE: Valkyrie is a multiplayer dogfighting shooter game set in the EVE Online
     universe that is designed to use virtual reality headset technology. Originally
     launched for Microsoft Windows for use with the Oculus Rift virtual reality headset
@@ -46,6 +49,7 @@ const lone_echo: Game = {
     date: 'Jul 20, 2017',
     developer: 'Ready at Dawn',
     publisher: `Oculus Studios`,
+    genre: ['Sci-Fi', 'Action', 'Shooter'],
     bio: `Lone Echo is a virtual reality adventure game developed by
     Ready At Dawn, and published by Oculus Studios.[1] Set aboard a space station
     orbiting Saturn, it allows players to move in zero-gravity by grabbing and pushing
@@ -59,6 +63,7 @@ const elder_scrolls: Game = {
     date: 'Nov 17, 2017',
     developer: 'Bethesda Game Studios',
     publisher: 'Bethesda Softworks',
+    genre: ['Fantasy', 'Action', 'Hack & Slash'],
     bio: `The Elder Scrolls V: Skyrim is an action role-playing video game developed by
     Bethesda Game Studios and published by Bethesda Softworks. It is the fifth main installment
     in The Elder Scrolls series, following The Elder Scrolls IV: Oblivion, and was originally
@@ -78,6 +83,7 @@ const rigs: Game = {
     date: 'Oct 13, 2016',
     developer: 'Guerrilla Cambridge',
     publisher: 'Sony Interactive Entertainment',
+    genre: ['Sci-Fi', 'Action'],
     bio: `RIGS: Mechanized Combat League is a first-person shooter sports
     video game developed by Guerrilla Cambridge and published by Sony Interactive
     Entertainment for the PlayStation 4 console and its virtual reality head-mounted
@@ -95,8 +101,9 @@ const drive_club: Game = {
     title: 'Drive Club',
     src: 'assets/Images/worlds/driveClub.jpg',
     date: 'Oct 13, 2016',
-    developer: '',
-    publisher: '',
+    developer: 'Evolution Studios',
+    publisher: 'Sony Computer Entertainment',
+    genre: ['Driving'],
     bio: `Driveclub is a racing game in which players compete in racing event
     around the world in a variety of different fashions. Players can compete
     in clubs with other players, earning a reputation as one of the best clubs,
@@ -113,6 +120,7 @@ const rush_of_blood: Game = {
     date: 'Oct 13, 2016',
     developer: 'Supermassive Games',
     publisher: 'Sony Interactive Entertainment',
+    genre: ['Survival Horror', 'Action'],
     bio: `Until Dawn: Rush of Blood is an arcade survival horror first-person shooter
      developed by Supermassive Games and published by Sony Interactive Entertainment,
      released on 13 October 2016 worldwide for PlayStation VR headset on PlayStation 4.
@@ -133,6 +141,7 @@ const batman: Game = {
     date: 'Oct 11, 2016',
     developer: 'Rocksteady Studios',
     publisher: 'Warner Bros Interactive Studios',
+    genre: ['Action'],
     bio: `Batman: Arkham VR is a virtual reality adventure video game developed by Rocksteady
     Studios and published by Warner Bros. Interactive Entertainment for PlayStation 4 and
     Microsoft Windows. Based on the DC Comics superhero Batman, it is a part of the
@@ -152,6 +161,7 @@ const hustle_kings: Game = {
     date: 'Oct 13, 2017',
     developer: 'VooFoo Studios',
     publisher: 'Sony Computer Entertainment',
+    genre: ['Table games', 'Pool'],
     bio: `Hustle Kings is a pool video game developed by VooFoo Studios for the PlayStation 3.
     It was released on the PlayStation Store in Europe on 22 December 2009 and in North
     America on 28 January 2010. The game features a career mode as well as various

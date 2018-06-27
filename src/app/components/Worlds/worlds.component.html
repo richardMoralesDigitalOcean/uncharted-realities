@@ -1,3 +1,54 @@
 <div class='page-background'>
     <img src='assets/Images/backgrounds/abstract_polygonal/abstract_polygonal_dark_blue.PNG'>
 </div>
+<div class='container'>
+    <div id="worlds" class="background-container">
+        <div class="container">
+            <div class="row no-gutters" *ngIf="view==='allWorlds'">
+                <div class="col-sm-1 nav-btn nav-btn-left">
+                    <button class="btn btn-default"> 
+                            <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="col">
+                    <div class="card card-invisible text-center">
+                        <div class="card-body">
+                            <div class="container-fluid">
+                                <div class="row search-container-right">
+                                    <div class="col-sm-6">
+                                        <div class="input-group input-group-sm transparent-input">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">
+                                                    <i class="fas fa-search"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search our worlds">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4"  *ngFor="let world of activeWorlds;">
+                                        <div class="card card-world" style="margin-top: 5vh;">
+                                            <img class="card-img-top" [src]="world.src" alt="Card image cap">
+                                            <div class="card-body">
+                                                <p class="card-text world-title center">
+                                                    {{world.title}}
+                                                </p>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1 nav-btn nav-btn-right">
+                    <button class="btn btn-default"> 
+                        <i class="fas fa-chevron-right"></i>        
+                    </button>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>

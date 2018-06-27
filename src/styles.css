@@ -11,3 +11,18 @@
     height: 100%;
     width: 100%;
 }
+.card-invisible {
+    border: none;
+    background:transparent;
+}
+.card-invisible h1.card-title {
+    color: white;
+    font-weight: bold;
+}
+.card-invisible .card-text{
+    color: white;
+    font-weight: bold;
+}
+.title-emphasis {
+    font-size: 8rem;
+}

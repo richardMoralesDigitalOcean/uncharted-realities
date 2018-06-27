@@ -1,3 +1,12 @@
+.page-background {
+    background: url('assets/Images/backgrounds/abstract_polygonal/abstract_polygonal_black.PNG');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.page-background-green-blue{
+    background-color: #86C232;
+    background-blend-mode: difference;
+}
 .carousel-img{
     height: 50vh;
 }
@@ -10,12 +19,35 @@
 .carousel-text p{
     color:white
 }
-.card{
+.card-neon-border{
     border: 2px solid #86C232;
 }
-.card-link{
-    color: #61892f;
+/*Invisible Card Style*/
+.card-invisible {
+    border: none;
+    box-shadow: #61892f;
+    background:transparent;
+}
+.card-invisible h1.card-title {
+    color: white;
     font-weight: bold;
+}
+.card-invisible .card-text{
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+.title-emphasis {
+    font-size: 8rem;
+}
+.card-link{
+    margin-top: 5vh;
+    font-size: 1.5rem;
+    color: #86C232;
+    font-weight: bold;
+}
+.card-link:hover {
+    color: #61892f;
 }
 .card-link-container{
     display: flex;

@@ -1,0 +1,7 @@
+abstract_technology_blue_1: https://www.shutterstock.com/image-illustration/abstract-technology-background-728857432
+abstract_Technology_blue_2:abstract_polygonal_blue: https://www.shutterstock.com/image-illustration/abstract-technology-background-728857432?src=DaBpvCvca0ygfYPB44DO0A-1-26
+abstract_technology_teal: https://www.shutterstock.com/image-illustration/futuristic-polygonal-shape-abstract-background-high-555100324
+abstract_technology_teal_2: https://www.shutterstock.com/image-illustration/abstract-connection-dots-technology-background-digital-700337893
+abstract_technology_teal_3: https://www.shutterstock.com/image-illustration/abstract-polygonal-space-low-poly-dark-550182499
+abstract_technology_teal_4: https://www.shutterstock.com/image-illustration/abstract-polygonal-space-low-poly-dark-437461324
+abstract_technology_pinkish: https://www.shutterstock.com/image-illustration/abstract-polygonal-space-low-poly-dark-523371217

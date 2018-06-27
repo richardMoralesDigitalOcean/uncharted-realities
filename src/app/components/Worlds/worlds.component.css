@@ -1,0 +1,56 @@
+/*Invisible Card Style
+.card-invisible {
+    border: none;
+    box-shadow: #61892f;
+    background:transparent;
+}
+.card-invisible h1.card-title {
+    color: white;
+    font-weight: bold;
+}
+.card-invisible .card-text{
+    color: white;
+    font-weight: bold;
+}*/
+.title-emphasis {
+    color: white;
+}
+.world-title{
+    color: black;
+}
+.card-world:hover {
+    border: 1px solid #116466;
+    background: #116466;
+}
+.card-world:hover .card-text{
+    color: white;
+}
+.transparent-input input{
+    background: transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+.transparent-input span {
+    background: transparent;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+}
+.nav-btn{
+    display: flex;
+    align-items: center;
+}
+.nav-btn-right{
+    justify-content: flex-end;
+}
+.nav-btn button{
+    background: transparent;
+    font-weight: bold;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+}
+.nav-btn button:hover{
+    color: #22c7cb;
+}

@@ -1,0 +1,7 @@
+futuristic_1: https://www.shutterstock.com/image-vector/binary-circuit-board-future-technology-blue-725823364?src=UDHf6Q88VbKS1umSngUzKA-1-32
+futuristic_2: https://www.shutterstock.com/image-vector/abstract-futuristic-digital-innovation-background-circuit-363349223
+futuristic_3: https://www.shutterstock.com/image-vector/illustration-blue-abstract-technology-circuit-background-186963608
+futuristic_4: https://www.shutterstock.com/image-vector/abstract-blue-circuit-board-on-dark-533439898
+futuristic_5: https://www.shutterstock.com/image-vector/best-internet-concept-global-business-concepts-689868553
+futuristic_neon: https://www.shutterstock.com/image-vector/technology-background-729302248
+futuristic_6: https://www.shutterstock.com/image-vector/abstract-futuristic-molecules-technology-linear-polygonal-503266684

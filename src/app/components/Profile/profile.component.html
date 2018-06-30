@@ -1,0 +1,50 @@
+<div id="profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col world-title">
+                                <h4> {{profile.title}} </h4>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-primary return-btn" (click)="hideFunc()">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col profile-image">
+                                <img [src]="profile.src">
+                                <br />
+                                <div class="profile-info" *ngFor="let info of profile.info">
+                                    <div *ngIf="info.text" class="info-text">
+                                        <h5> {{ info.label }} </h5> {{info.text}}
+                                    </div>
+                                    <div *ngIf="info.data" class="info-text">
+                                        <h5> {{ info.label }} </h5> 
+                                       
+                                            <p *ngFor="let text of info.data">
+                                                <i class="fas fa-circle" [ngStyle]="{'color': theme.primary}"></i> {{text}} 
+                                            </p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="col-sm-12 profile-bio">
+                                    <h4>Description</h4>
+                                    <br />
+                                    <p>
+                                        {{profile.bio}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

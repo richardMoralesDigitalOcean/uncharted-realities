@@ -9,6 +9,8 @@ import { AboutComponent } from './components/About/about.component';
 import { ContactComponent } from './components/Contact/contact.component';
 import { VendorsComponent } from './components/Vendors/vendors.component';
 import { WorldsComponent } from './components/Worlds/worlds.component';
+import { ProfileComponent } from './components/Profile/profile.component';
+import { WorldsPipe } from './Pipes/worlds-pipe.pipe';
 
 const appRoutes = [
   { path: 'home', component: HomeComponent },
@@ -30,14 +32,16 @@ const appRoutes = [
     AboutComponent,
     ContactComponent,
     VendorsComponent,
-    WorldsComponent
+    WorldsComponent,
+    ProfileComponent,
+    WorldsPipe
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     NguCarouselModule
   ],
-  providers: [],
+  providers: [WorldsPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,15 @@
+.profile-image img{
+    height: 35vh;
+}
+.return-btn{
+    background: transparent;
+    float: right;
+    color: black;
+}
+.return-btn:hover{
+    color: white;
+}
+.fa-circle{
+    margin-right: 15px;
+    font-size: .5rem;
+}

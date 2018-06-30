@@ -1,19 +1,24 @@
-interface Game {
-    title: string;
-    date: string;
+interface Info {
+    label: string;
+    text?: string; // handles string
+    data?: string[]; // handles string[]
+}
+interface Profile {
     src: string;
-    developer: string;
-    publisher: string;
-    genre: string [];
+    title: string;
+    info: Info[];
     bio: string;
 }
-const resi7: Game = {
+
+const resi7: Profile = {
     title: 'Resident Evil 7',
-    date: 'Jan 24, 2017',
     src: 'assets/Images/worlds/resi7.jpg',
-    developer: 'Capcom',
-    publisher: 'Capcom',
-    genre: ['Survival Horror', 'Action'],
+    info: [
+        {label: 'Developer', text: 'Capcom'},
+        {label: 'Publisher', text: 'Capcom'},
+        {label: 'Release Date', text: 'Jan 24, 2017'},
+        {label: 'Genre', data: ['Survival Horror', 'Action']}
+    ],
     bio: `Resident Evil 7: Biohazard is a survival horror game developed and published
     by Capcom, released in January 2017 for Windows, PlayStation 4, and Xbox One,
     and in May 2018 for the Nintendo Switch (Japan). Following the more action-oriented
@@ -23,13 +28,15 @@ const resi7: Game = {
     solving puzzles and fighting enemies. It is the first main series game to use a
     first-person view.`
 };
-const eve_valkyrie: Game = {
+const eve_valkyrie: Profile = {
     title: 'Eve Valkyrie',
     src: 'assets/Images/worlds/eve_valkyrie.jpg',
-    date: 'Mar 28, 2016',
-    developer: 'CCP Games',
-    publisher: 'CCP Games & Oculus VR',
-    genre: ['Sci-Fi', 'Action'],
+    info: [
+        {label: 'Developer', text: 'CCP Games'},
+        {label: 'Publisher', text: 'CCP Games & Oculus VR'},
+        {label: 'Release Date', text: 'Mar 28, 2016'},
+        {label: 'Genre', data: ['Sci-Fi', 'Action']}
+    ],
     bio: `EVE: Valkyrie is a multiplayer dogfighting shooter game set in the EVE Online
     universe that is designed to use virtual reality headset technology. Originally
     launched for Microsoft Windows for use with the Oculus Rift virtual reality headset
@@ -43,13 +50,15 @@ const eve_valkyrie: Game = {
     with PC Powerplay dubbing it "arguably the best VR experience currently available
     for the [Oculus Rift] platform."`
 };
-const lone_echo: Game = {
+const lone_echo: Profile = {
     title: 'Lone Echo',
     src: 'assets/Images/worlds/loneEcho.jpg',
-    date: 'Jul 20, 2017',
-    developer: 'Ready at Dawn',
-    publisher: `Oculus Studios`,
-    genre: ['Sci-Fi', 'Action', 'Shooter'],
+    info: [
+        {label: 'Developer', text: 'Ready at Dawn'},
+        {label: 'Publisher', text: 'Oculus Studios'},
+        {label: 'Release Date', text: 'Jul 20, 2017'},
+        {label: 'Genre', data: ['Sci-Fi', 'Action', 'Shooter']}
+    ],
     bio: `Lone Echo is a virtual reality adventure game developed by
     Ready At Dawn, and published by Oculus Studios.[1] Set aboard a space station
     orbiting Saturn, it allows players to move in zero-gravity by grabbing and pushing
@@ -57,13 +66,15 @@ const lone_echo: Game = {
     includes a team-based multiplayer sports mode called Echo Arena, which was also
     released as a stand-alone game.`
 };
-const elder_scrolls: Game = {
+const elder_scrolls: Profile = {
     title: 'Elder Scrolls V: Skyrim',
     src: 'assets/Images/worlds/Skyrim.png',
-    date: 'Nov 17, 2017',
-    developer: 'Bethesda Game Studios',
-    publisher: 'Bethesda Softworks',
-    genre: ['Fantasy', 'Action', 'Hack & Slash'],
+    info: [
+        {label: 'Developer', text: 'Bethesda Game Studios'},
+        {label: 'Publisher', text: 'Bethesda Softworks'},
+        {label: 'Release Date', text: 'Nov 17, 2017'},
+        {label: 'Genre', data: ['Fantasy', 'Action', 'Hack & Slash']}
+    ],
     bio: `The Elder Scrolls V: Skyrim is an action role-playing video game developed by
     Bethesda Game Studios and published by Bethesda Softworks. It is the fifth main installment
     in The Elder Scrolls series, following The Elder Scrolls IV: Oblivion, and was originally
@@ -77,13 +88,15 @@ const elder_scrolls: Game = {
     predecessors by allowing the player to travel anywhere in the game world at any time,
     and to ignore or postpone the main storyline indefinitely.`
 };
-const rigs: Game = {
+const rigs: Profile = {
     title: 'Rigs',
     src: 'assets/Images/worlds/rigs.jpg',
-    date: 'Oct 13, 2016',
-    developer: 'Guerrilla Cambridge',
-    publisher: 'Sony Interactive Entertainment',
-    genre: ['Sci-Fi', 'Action'],
+    info: [
+        {label: 'Developer', text: 'Guerrilla Cambridge'},
+        {label: 'Publisher', text: 'Sony Interactive Entertainment'},
+        {label: 'Release Date', text: 'Oct 13, 2016'},
+        {label: 'Genre', data: ['Sci-Fi', 'Action']}
+    ],
     bio: `RIGS: Mechanized Combat League is a first-person shooter sports
     video game developed by Guerrilla Cambridge and published by Sony Interactive
     Entertainment for the PlayStation 4 console and its virtual reality head-mounted
@@ -97,13 +110,15 @@ const rigs: Game = {
     of weapons loadouts, which players can use to score a Takedown by destroying an
     opposing team's Rig`
 };
-const drive_club: Game = {
+const drive_club: Profile = {
     title: 'Drive Club',
     src: 'assets/Images/worlds/driveClub.jpg',
-    date: 'Oct 13, 2016',
-    developer: 'Evolution Studios',
-    publisher: 'Sony Computer Entertainment',
-    genre: ['Driving'],
+    info: [
+        {label: 'Developer', text: 'Evolution Studios'},
+        {label: 'Publisher', text: 'Sony Computer Entertainment'},
+        {label: 'Release Date', text: 'Oct 13, 2016'},
+        {label: 'Genre', data: ['Racing']}
+    ],
     bio: `Driveclub is a racing game in which players compete in racing event
     around the world in a variety of different fashions. Players can compete
     in clubs with other players, earning a reputation as one of the best clubs,
@@ -114,13 +129,15 @@ const drive_club: Game = {
     or their driver, and may complete optional challenges during events.
     A weather system and day-night cycle is also included.`
 };
-const rush_of_blood: Game = {
+const rush_of_blood: Profile = {
     title: 'Until Dawn: Rush of Blood',
     src: 'assets/Images/worlds/rushOfBlood.jpg',
-    date: 'Oct 13, 2016',
-    developer: 'Supermassive Games',
-    publisher: 'Sony Interactive Entertainment',
-    genre: ['Survival Horror', 'Action'],
+    info: [
+        {label: 'Developer', text: 'Supermassive Games'},
+        {label: 'Publisher', text: 'Sony Interactive Entertainment'},
+        {label: 'Release Date', text: 'Oct 13, 2016'},
+        {label: 'Genre', data: ['Survival Horror', 'Action']}
+    ],
     bio: `Until Dawn: Rush of Blood is an arcade survival horror first-person shooter
      developed by Supermassive Games and published by Sony Interactive Entertainment,
      released on 13 October 2016 worldwide for PlayStation VR headset on PlayStation 4.
@@ -135,13 +152,15 @@ const rush_of_blood: Game = {
       with handguns, although other weapons such as grenade launchers will be available.
       `
 };
-const batman: Game = {
+const batman: Profile = {
     title: 'Batman: Arkham VR',
     src: 'assets/Images/worlds/batman.png',
-    date: 'Oct 11, 2016',
-    developer: 'Rocksteady Studios',
-    publisher: 'Warner Bros Interactive Studios',
-    genre: ['Action'],
+    info: [
+        {label: 'Developer', text: 'Rocksteady Studios'},
+        {label: 'Publisher', text: 'Warner Bros Interactive Studios'},
+        {label: 'Release Date', text: 'Oct 11, 2016'},
+        {label: 'Genre', data: ['Action']}
+    ],
     bio: `Batman: Arkham VR is a virtual reality adventure video game developed by Rocksteady
     Studios and published by Warner Bros. Interactive Entertainment for PlayStation 4 and
     Microsoft Windows. Based on the DC Comics superhero Batman, it is a part of the
@@ -155,13 +174,15 @@ const batman: Game = {
     Batman: Arkham City and 2015's Batman: Arkham Knight, and follows Batman as he
     investigates the disappearance of his allies Nightwing and Robin.`
 };
-const hustle_kings: Game = {
+const hustle_kings: Profile = {
     title: 'Hustle Kings',
     src: 'assets/Images/worlds/hustleKings.png',
-    date: 'Oct 13, 2017',
-    developer: 'VooFoo Studios',
-    publisher: 'Sony Computer Entertainment',
-    genre: ['Table games', 'Pool'],
+    info: [
+        {label: 'Developer', text: 'VooFoo Studios'},
+        {label: 'Publisher', text: 'Sony Computer Entertainment'},
+        {label: 'Release Date', text: 'Oct 13, 2016'},
+        {label: 'Genre', data: ['Table games', 'Pool']}
+    ],
     bio: `Hustle Kings is a pool video game developed by VooFoo Studios for the PlayStation 3.
     It was released on the PlayStation Store in Europe on 22 December 2009 and in North
     America on 28 January 2010. The game features a career mode as well as various
@@ -179,7 +200,7 @@ const hustle_kings: Game = {
      America on 9 June 2015. A port of Hustle Kings titled 'Hustle Kings VR' has been confirmed
       to be launching with the PlayStation VR headset for the PlayStation 4 on October 13.`
 };
-export const worldsDummy: Game[] = [
+export const worldsDummy: Profile[] = [
     resi7, eve_valkyrie, lone_echo, elder_scrolls, rigs,
     drive_club, rush_of_blood, batman, hustle_kings
 ];

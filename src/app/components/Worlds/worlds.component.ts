@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { worldsDummy } from './worldsDummyData';
+import { worldsDummy } from '../../DummyData/dummy-data-worlds';
+import {WorldsPipe} from '../../Pipes/worlds-pipe.pipe';
 import * as $ from 'jquery';
+
+interface Theme {
+  primary: string;
+  secondary: string;
+}
 
 @Component({
   selector: 'app-worlds',
@@ -10,14 +16,21 @@ import * as $ from 'jquery';
 export class WorldsComponent {
   view = 'worlds';
   worlds: any[] = worldsDummy;
-  pageIndex = 0;
+  pageIndex = 0; // allows pagination of worlds data
   activeWorlds: any[] = [];
   activeWorld: any;
+  theme: Theme = {
+    primary: '#1ca4a8',
+    secondary: '#116466'
+  };
+  /***********For Pipe************/
+  worldsBackup: any[] = worldsDummy;
   constructor() {
     /*
       + Set activeWorlds to first 6 titles in worlds
       + Ensures that, initially, the view will show 6 titles
     */
+    this.hideProfile = this.hideProfile.bind(this);
     this.setActiveWorlds(0);
   }
   setActiveWorlds(pageIndex: number): void {
@@ -40,7 +53,6 @@ export class WorldsComponent {
     console.log(`Start Index: ${startIndex}`);
     console.log(`Active Worlds`, this.activeWorlds);
     console.log(`Stop Index: ${i}`);
-    
   }
   showProfile(world): void {
     /*
@@ -69,6 +81,25 @@ export class WorldsComponent {
     if (type === 'right') {
       this.pageIndex += 1;
     }
+    this.setActiveWorlds(this.pageIndex);
+  }
+  hideProfile(): void {
+    /*
+      + Constructor binds this function's context to WorldsComponent
+        and thus can utilize this to change view and hide the ProfileComponent
+    */
+    this.view = 'worlds';
+  }
+  filterWorlds(filterVal) {
+    /*
+      + Filter worlds by title, publisher, developer, genre
+    */
+    if (filterVal.trim().length === 0) {
+      this.worlds = this.worldsBackup;
+    } else {
+      this.worlds = new WorldsPipe().transform(this.worldsBackup, filterVal);
+    }
+    this.pageIndex = 0;
     this.setActiveWorlds(this.pageIndex);
   }
 }

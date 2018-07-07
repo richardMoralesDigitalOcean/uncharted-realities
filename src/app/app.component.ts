@@ -6,27 +6,21 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   title = 'app';
   menuState = false;
   route: string;
   href = '';
-  /*backgroundUrls: any = {
-    home: 'assets/Images/backgrounds/abstract_polygonal/abstract_polygonal_black.PNG',
-    worlds: 'assets/Images/backgrounds/abstract_polygonal/abstract_polygonal_dark_blue.PNG',
-    about: 'assets/Images/backgrounds/abstract_polygonal/abstract_polygonal_sea_green.PNG',
-    contact: 'assets/Images/backgrounds/abstract_polygonal/abstract_polygonal_yellow.PNG',
-    vendors: 'assets/Images/backgrounds/abstract_polygonal/abstract_polygonal_magenta.PNG'
-  };*/
   colorSchemes: any = {
     home: '#86c232',
     worlds: '#116466',
     vendors: '#cb2d6f',
     // about: '#00887a',
     about: 'white',
-    contact: '#faed26'
+    contact: '#faed26',
+    shop: 'white'
   };
   constructor(private _route: ActivatedRoute, private router: Router, private location: Location) {
   }

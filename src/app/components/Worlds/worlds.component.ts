@@ -11,7 +11,7 @@ interface Theme {
 @Component({
   selector: 'app-worlds',
   templateUrl: './worlds.component.html',
-  styleUrls: ['./worlds.component.css']
+  styleUrls: ['./worlds.component.scss']
 })
 export class WorldsComponent {
   view = 'worlds';

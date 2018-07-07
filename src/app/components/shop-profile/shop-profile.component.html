@@ -1,0 +1,57 @@
+<div id="profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col world-title">
+                                <h4> {{item.title}} </h4>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-primary return-btn" (click)="hideFunc()">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col item-image">
+                                <img [src]="item.src">
+                                <br />
+                                <form [formGroup]="optionsForm">
+                                  <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Color</label>
+                                    <select class="form-control" id="exampleFormControlSelect1"
+                                    formControlName="colors">
+                                        <option *ngFor="let color of item.colors">
+                                            {{color}}
+                                          </option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleFormControlSelect1">Size</label>
+                                      <select class="form-control" id="exampleFormControlSelect1"
+                                      formControlName="size">
+                                          <option *ngFor="let size of item.sizes">
+                                              {{size}}
+                                            </option>
+                                      </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col">
+                                <div class="col-sm-12 profile-bio">
+                                    <h4>Description</h4>
+                                    <br />
+                                    <p>
+                                        {{item.desc}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

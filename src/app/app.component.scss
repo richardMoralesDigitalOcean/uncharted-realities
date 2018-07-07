@@ -1,3 +1,10 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@include media-breakpoint-only(xs) {
+    .socialMediaBtns{
+        display: flex;
+        justify-content: center;
+    }
+}
 .appContainer{
     /*background: #222629;*/
     background-size: cover;
@@ -8,13 +15,17 @@
 }
 .logoContainer{
     position: fixed;
-    height: 10vh;
+    top: 0px;
+    min-height: 10vh;
     width: 100vw;
     z-index: 100;
     align-items: center;
     padding-top: 5px;
     background: black;
    
+}
+.logoContainer b{
+    color: white;
 }
 .logo{
     margin-top: 5px;

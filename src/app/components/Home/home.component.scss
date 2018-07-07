@@ -1,0 +1,56 @@
+
+@import "~bootstrap/scss/bootstrap.scss";
+@include media-breakpoint-up(md) {
+   .container-row{
+        display: flex;
+        justify-content: center;
+    }
+}
+.page-background {
+    background: url('assets/Images/backgrounds/virtual_reality/vr_man.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+/*.page-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}*/
+.card-neon-border{
+    border: 2px solid #86C232;
+}
+/*Invisible Card Style*/
+.card-invisible {
+    border: none;
+    box-shadow: #61892f;
+    background:transparent;
+}
+.card-invisible h1.card-title {
+    color: white;
+    font-weight: bold;
+}
+
+.card-text>.container{
+    padding-left: 0px;
+}
+.card-link{
+    margin-top: 5vh;
+    font-size: 2rem;
+    color: #86C232;
+    font-weight: bold;
+}
+.card-link:hover {
+    color: #61892f;
+}
+.card-link-container{
+    display: flex;
+    justify-content: center;
+}
+
+.neon-bold-green{
+    color: #86C232
+}
+.experience-list p{
+    color: black;
+}

@@ -1,0 +1,239 @@
+@import './variables';
+@import './mixins';
+@import "~bootstrap/scss/bootstrap.scss";
+@import 
+  'functions',
+  'variables',
+  'mixins';
+// Extra small devices (portrait phones, less than 576px)
+@include media-breakpoint-only(xs) {
+    ::-webkit-scrollbar {
+        width: 0px;  /* remove scrollbar space */
+        background: transparent;  /* optional: just make scrollbar invisible */
+    }
+    body{
+        padding-top: 15vh;
+    }
+    .glass{
+        height: 90vh;
+        top: calc(13.5%);
+        background: inherit;
+        position: relative;
+    }
+    .glass:before{
+        content: " ";
+        background: inherit; 
+        position: absolute;
+        width: 100vw;
+        height: calc(100% + 10px);
+        left: -25;
+        right: 0;
+        top: -25; 
+        bottom: 0;
+        box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.3);
+        filter: blur(10px);
+    }
+    .glass>.container{
+        height: inherit;
+        overflow-y: scroll;
+    }
+    .title-emphasis {
+        font-size: 5.4rem;
+    }
+    .experience-list{
+        font-size: 1.4rem;
+    }
+    .card-text{
+        font-size: 1.4rem;
+    }
+}
+// Small devices (landscape phones, 576px and up)
+@include media-breakpoint-only(sm) { 
+    ::-webkit-scrollbar {
+        width: 0px;  /* remove scrollbar space */
+        background: transparent;  /* optional: just make scrollbar invisible */
+    }
+    body{
+        padding-top: 15vh;
+    }
+    .glass{
+        top: calc(10%);
+        height: 90vh;
+        background: inherit;
+        position: relative;
+        overflow: hidden;
+    }
+    .glass:before{
+        content: " ";
+        background: inherit; 
+        position: absolute;
+        width: 100vw;
+        height: calc(100% + 1px);
+        left: -25;
+        right: 0;
+        top: -25; 
+        bottom: 0;
+        box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.3);
+        filter: blur(10px);
+    }
+    .glass>.container{
+        height: inherit;
+        overflow-y: scroll;
+    }
+    .title-emphasis {
+        font-size: 5.4rem;
+    }
+    .card-text{
+        font-size: 1.4rem;
+    }
+    .experience-list{
+        font-size: 1.4rem;
+    }
+ }
+@include media-breakpoint-up(md) {
+    /*width*/
+::-webkit-scrollbar {
+    width: 5px;
+}
+body{
+    padding-top: 15vh;
+}
+/* Track  */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle*/ 
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+/* Handle on hover */ 
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+    .glass{
+        background: inherit;
+        position: relative;
+        overflow: hidden;
+    }
+    .glass:before{
+        content: " ";
+        background: inherit; 
+        position: absolute;
+        width: 100vw;
+        height: calc(100% + 1px);
+        left: -25;
+        right: 0;
+        top: -25; 
+        bottom: 0;
+        box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.3);
+        filter: blur(10px);
+    }
+    .page-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .title-emphasis {
+        font-size: 8.4rem;
+    }
+    .card-title{
+        font-size: 4.4rem;
+    }
+    .card-text{
+        font-size: 1.6rem;
+    }
+    .experience-list{
+        font-size: 1.3rem;
+    }
+}
+@font-face {
+    font-family: NeoSans;
+    src: url("assets/Fonts/NeoSans/NeoSans_Dark.otf") format("opentype");
+}
+/* You can add global styles to this file, and also import other style files */
+
+/** Standardize Font-Sizes **/
+html {
+    font-size: 62.5%;
+}
+
+.page-container-flex{
+    height: 88vh;
+    display: flex;
+    align-items: center;
+}
+.page-background{
+    top: 0;
+    left: 0;
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    z-index: -1;
+}
+.page-background>img{
+    height: 100%;
+    width: 100%;
+}
+.card-invisible {
+    border: none;
+    background:transparent;
+}
+.card-invisible h1.card-title {
+    color: white;
+    font-weight: bold;
+}
+.card-text{
+    color: black;
+    font-weight: bold;
+}
+.title-emphasis {
+    font-family: NeoSans;
+}
+
+.content-area{
+    font-family: NeoSans;
+}
+.page-background-greyscale{
+    filter: grayscale(30%);
+}
+.btn-invisible{
+    background: transparent;
+    border: none;
+}
+/** Glass Effect***/
+/*
+.glass{
+    background: inherit;
+}
+.glass::before{
+    content: ‘’;
+    background: inherit; 
+    position: absolute;
+    left: -25px;  //giving minus -25px left position
+    right: 0;
+    top: -25px;   //giving minus -25px top position 
+    bottom: 0;
+    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
+    filter: blur(10px);
+}*/
+/*.glass {
+    margin: 20px auto;
+    position: relative;
+    background: hsla(0,0%,100%,.3);
+    border-radius: 10px;
+    box-shadow: 5px 3px 30px black;
+    overflow: hidden;
+}
+  
+.glass::before {
+    content: '';
+    margin: -35px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(20px);
+    z-index: -1;
+}*/

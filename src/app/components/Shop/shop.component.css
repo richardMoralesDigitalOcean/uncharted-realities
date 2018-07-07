@@ -1,28 +1,14 @@
-/*Invisible Card Style
-.card-invisible {
-    border: none;
-    box-shadow: #61892f;
-    background:transparent;
-}
-.card-invisible h1.card-title {
-    color: white;
-    font-weight: bold;
-}
-.card-invisible .card-text{
-    color: white;
-    font-weight: bold;
-}*/
 .title-emphasis {
     color: white;
 }
-.world-title{
+.item-title{
     color: black;
 }
-.card-world:hover {
+.card-item:hover {
     border: 1px solid #116466;
     background: #116466;
 }
-.card-world:hover .card-text{
+.card-item:hover .card-text{
     color: white;
 }
 .transparent-input input{
@@ -57,9 +43,6 @@
 #profile{
     margin-top: 5vh;
 }
-.world-image img{
-    height: 35vh;
-}
 .btn-return-to-worlds{
     float: right;
     background:  #1ca4a8;
@@ -67,6 +50,27 @@
 .btn-return-to-worlds:hover{
     background: #116466;
 }
-.game-bio h4{
-    border-bottom: 1px solid #1ca4a8;
+#showAllItems .title{
+    color: white;
 }
+#showAllItems .pageString{
+    color: white;
+}
+.breadcrumbs_container{
+    display: flex;
+    align-items: center;
+}
+.cust_breadcrumb{
+    color: white;
+}
+.cust_breadcrumb:hover{
+    color:  #1ca4a8;
+}
+
+/*****Glass CSS *****/
+
+@import url(https://fonts.googleapis.com/css?family=Russo+One);
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,400italic);
+
+  
+  

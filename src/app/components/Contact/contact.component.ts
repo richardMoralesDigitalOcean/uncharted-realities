@@ -1,20 +1,55 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as $ from 'jquery';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
   form = 'visitor'; // visitor, or vendor
-  constructor() {
-
+  visitorForm: FormGroup;
+  vendorForm: FormGroup;
+  contactForm: FormGroup;
+  constructor(private fb: FormBuilder) {
+    this.createVisitorForm();
+    this.createVendorForm();
+    this.createContactForm();
   }
   toggleForm(formType): void {
     /*
       + Change view based on user clicking 'Visitor' or 'Vendor' button
     */
    this.form = formType;
+  }
+  createVisitorForm(): void {
+    this.visitorForm = this.fb.group({
+      firstName: ['', Validators.required ],
+      lastName: ['', Validators.required ],
+      email: ['', Validators.required ],
+      phone: ['', Validators.required ],
+      message: ''
+    });
+  }
+  createVendorForm(): void {
+    this.vendorForm = this.fb.group({
+      firstName: ['', Validators.required ],
+      lastName: ['', Validators.required ],
+      email: ['', Validators.required ],
+      phone: ['', Validators.required ],
+      companyName: ['', Validators.required ],
+      companyAddress: ['', Validators.required ],
+      productType: ['', Validators.required ],
+      subject: ['', Validators.required ],
+      message: ['', Validators.required ]
+    });
+  }
+  createContactForm(): void {
+    this.contactForm = this.fb.group({
+      address: ['Portland, OR', Validators.required ],
+      phone: ['(844)633-0075', Validators.required ],
+      email: ['​info@unchartedrealities.com', Validators.required ],
+    });
   }
 }

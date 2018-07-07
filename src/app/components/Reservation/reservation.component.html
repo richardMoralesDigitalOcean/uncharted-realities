@@ -1,0 +1,46 @@
+<div class='page-background'>
+    <img src='assets/Images/backgrounds/abstract_polygonal/abstract_polygonal_yellow.PNG'>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <div class="card">
+          <div class="card-body">
+              <h1 class="card-title">
+                  <b class="title-emphasis neon-bold-green" >Reservation</b> 
+                  <br/>
+                  Make a reservation today to guarantee a chance to explore new worlds
+              </h1>
+              <form [formGroup]="reservationForm">
+                  <div class="form-group">
+                    <label class="center-block">Name:
+                      <input class="form-control" formControlName="name">
+                    </label>
+                  </div>
+                  <div class="form-group">
+                      <label class="center-block">Date:
+                        <input class="form-control" formControlName="date" type="date">
+                      </label>
+                  </div>
+                  <div class="form-group">
+                      <label class="center-block">Start Time:
+                        <input class="form-control" formControlName="startTime" type="time">
+                      </label>
+                  </div>
+                  <div class="form-group">
+                      <label class="center-block">End Time:
+                        <input class="form-control" formControlName="endTime" type="time">
+                      </label>
+                  </div>
+                  <div class="form-group">
+                      <label class="center-block">Message:
+                        <input class="form-control" formControlName="message">
+                      </label>
+                  </div>
+                </form>
+                <button type="button" class="btn btn-primary" (click)="makeReservation()">Reserve!</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

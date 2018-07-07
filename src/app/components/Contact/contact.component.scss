@@ -1,0 +1,61 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@include media-breakpoint-only(xs) {
+    .contact-info{
+        margin-top: 5vh;
+    }
+    .card-title{
+        font-size: 5.4rem;
+    }
+    label{
+        font-size: 1.4rem;
+    }
+    .col-form-label{
+        font-size: 1.4rem;
+    }
+}
+@include media-breakpoint-up(md) {
+    .glass{
+        padding-top: 15vh;
+        height: 100vh;
+    }
+    .container{
+        height: inherit;
+        overflow-y: auto;
+        padding-bottom: 10vh;
+    }
+    .card-title{
+        font-size: 5.4rem;
+    }
+    h2{
+        font-size: 3.4rem;
+    }
+    label{
+        font-size: 1.6rem;
+    }
+    .col-form-label{
+        font-size: 1.6rem;
+    }
+    .contactForm input{
+        font-size: 1.2rem;
+    }
+}
+.page-background {
+    background: url('assets/Images/backgrounds/adventure_and_wonderment/adventure_1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+.card{
+    background: transparent;
+    border: none;
+}
+.card-title{
+    color:black;
+    font-weight: bold;
+}
+.underline{
+    border-bottom: 1px solid white;
+}
+.contact-info input{
+    color: white;
+}

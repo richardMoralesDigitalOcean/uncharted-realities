@@ -1,0 +1,48 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@include media-breakpoint-down(sm){
+    .glass{
+        padding-top: 5vh;
+    }
+}
+@include media-breakpoint-up(md){
+    .page-background{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .glass{
+        padding-top: 15vh;
+    }
+}
+.page-background {
+    background: url('assets/Images/backgrounds/futurescape/futurescape_black.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.neon-bold-blue{
+    color: rgb(28, 164, 168);
+}
+.card-title{
+    color: white;
+}
+.card-text>.container{
+    padding-left: 0px;
+}
+.card-text{
+    color:black;
+}
+blockquote{
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin-bottom: 10vh;
+}
+.detail-list i{
+    font-size: 4rem;
+    color: rgb(28, 164, 168);
+}
+.detail-list p{
+    font-size: 1.4rem;
+}
+.iconContainer{
+    text-align: center;
+}

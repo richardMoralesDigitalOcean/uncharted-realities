@@ -1,0 +1,136 @@
+<div class='page-background'>
+    <img src='assets/Images/backgrounds/abstract_polygonal/abstract_polygonal_dark_blue.PNG'>
+</div>
+<div class="container">
+  <div id="searchAndFilterBar" class="row no-gutters">
+      <div class="col-sm-8">
+          <div class="input-group input-group-sm transparent-input">
+              <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">
+                      <i class="fas fa-search"></i>
+                  </span>
+              </div>
+              <input #filterInp type="text" class="form-control" 
+              aria-label="Small" aria-describedby="inputGroup-sizing-sm" 
+              placeholder="Search our store"
+              (input)="filterItems(filterInp.value)">
+          </div>
+      </div>
+      <div class="col-sm-4">
+        <form [formGroup]="filtersForm">
+            <div class="form-group">
+                <select class="form-control" id="filters" formControlName="filters">
+                    <optgroup label="Apparel">
+                      <option>All</option>
+                      <option> Shirts </option>
+                      <option>Pants</option>
+                      <option>Outerwear</option>
+                      <option>Accessories</option>
+                    </optgroup>
+                    <optgroup label="Filters">
+                        <option>On Sale</option>
+                        <option>In Store Only</option>
+                        <option>Online Only</option>
+                    </optgroup>
+                </select>
+            </div>
+        </form>
+      </div>
+  </div>
+  <div id="landingPage" *ngIf="view === 'landing'"  class="row no-gutters">
+    <div class="col-sm-12">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="item-row-title d-flex w-100 justify-content-between">
+              <h5 class="mb-1">On Sale</h5>
+              <small>3 days ago</small>
+            </div>
+            <div class="row item-row-items">
+              <div class="col-xs-6 col-sm-4" *ngFor="let item of saleItems.slice(0,3)">
+                <div class="card card-item" style="margin-top: 5vh;" (click)="showProfile(item)">
+                    <img class="card-img-top" [src]="item.src" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text item-title center">
+                            {{item.name}}
+                        </p>
+                    </div>
+                </div> 
+              </div>
+            </div>
+            <div class="row item-row-view-all" style="margin-top: 5vh">
+              <div class="col">
+                <button type="button" class="btn btn-primary" style="float: right" (click)="viewAll('sale')">
+                  View All ->
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="item-row-title d-flex w-100 justify-content-between">
+              <h5 class="mb-1">New Products</h5>
+              <small>3 days ago</small>
+            </div>
+            <div class="row item-row-items">
+              <div class="col-xs-6 col-sm-4" *ngFor="let item of newItems.slice(0,3)">
+                <div class="card card-item" style="margin-top: 5vh;" (click)="showProfile(item)">
+                    <img class="card-img-top" [src]="item.src" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text item-title center">
+                            {{item.name}}
+                        </p>
+                    </div>
+                </div> 
+              </div>
+            </div>
+            <div class="row item-row-view-all" style="margin-top: 5vh">
+              <div class="col">
+                <button type="button" class="btn btn-primary" style="float: right" (click)="viewAll('new')">
+                  View All ->
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div id="showAllItems" *ngIf="view === 'all'" class="row no-gutters">
+    <div class="col-sm-12">
+        <div class="row">
+          <div class="col">
+              <h2 class="title">{{title}}</h2>
+          </div>
+          <div class="col-sm-4 breadcrumbs_container">
+            <span *ngFor="let str of breadcrumbs; let i = index" style="float:left" 
+            (click)="viewAll(str)">
+              <h4 class="cust_breadcrumb" *ngIf="i==0" (click)="view='all'">{{str + ' > '}}</h4>
+              <h4 class="cust_breadcrumb" *ngIf="i !== breadcrumbs.length - 1 && i !== 0"
+              (click)="view=str">{{str + ' > '}}</h4>
+              <h4 class="cust_breadcrumb" *ngIf="i === breadcrumbs.length - 1"
+              (click)="view=str">{{str}}</h4>
+            </span>
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-xs-6 col-sm-4" *ngFor="let item of activeItems">
+          <div class="card card-item" style="margin-top: 5vh;" (click)="showProfile(item)">
+              <img class="card-img-top" [src]="item.src" alt="Card image cap">
+              <div class="card-body">
+                  <p class="card-text item-title center">
+                      {{item.name}}
+                  </p>
+              </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="itemProfile"  *ngIf="view === 'profile'" class="row">
+      <app-shop-profile [item]="activeItem" [hideFunc]="hideProfile()"></app-shop-profile>
+  </div>
+</div>
+
+
+
+

@@ -4,7 +4,7 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-vendors',
   templateUrl: './vendors.component.html',
-  styleUrls: ['./vendors.component.css']
+  styleUrls: ['./vendors.component.scss']
 })
 export class VendorsComponent {
   constructor() {

@@ -1,6 +1,5 @@
-.profile-image img{
+.item-image img{
     height: 35vh;
-    max-width: 70vw;
 }
 .return-btn{
     background: transparent;

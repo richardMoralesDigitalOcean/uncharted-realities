@@ -1,0 +1,119 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@include media-breakpoint-only(xs) {
+    .pageContainer{
+        margin-top: 5vh;
+    }
+    .nav-btn{
+        height: 80vh;
+        position: fixed;
+    }
+    
+    .nav-btn-left{
+        left: 5vw;
+    }
+    .nav-btn-right{
+        left: 88vw;
+        justify-content: flex-end;
+    }
+}
+@include media-breakpoint-only(sm) { 
+    .nav-btn{
+        height: 80vh;
+    }
+    .nav-btn-left{
+        left: 5vw;
+    }
+    .nav-btn-right{
+        justify-content: flex-end;
+    }
+    .row{
+        align-items: center;
+    }
+ }
+ @include media-breakpoint-up(md) {
+    .nav-btn-right{
+        justify-content: flex-end;
+    }
+    .pageContainer{
+        display: flex;
+        align-items: center;
+        height: 88vh;
+    }
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}
+.card{
+    background: transparent;
+    border: none;
+}
+.page-background {
+    background: url('assets/Images/backgrounds/adventure_and_wonderment/adventure_3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.title-emphasis {
+    color: white;
+}
+.world-title{
+    color: black;
+}
+.card-world:hover {
+    border: 1px solid #116466;
+    background: #116466;
+}
+.card-world:hover .card-text{
+    color: white;
+}
+.transparent-input input{
+    background: transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+.transparent-input span {
+    background: transparent;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+}
+.nav-btn{
+    display: flex;
+    align-items: center;
+}
+.nav-btn button{
+    background: transparent;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
+.nav-btn i{
+    font-size: 2.4rem;
+}
+.nav-btn button:hover{
+    color: #22c7cb;
+}
+#profile{
+    margin-top: 5vh;
+}
+.world-image img{
+    height: 35vh;
+}
+.btn-return-to-worlds{
+    float: right;
+    background:  #1ca4a8;
+}
+.btn-return-to-worlds:hover{
+    background: #116466;
+}
+.game-bio h4{
+    border-bottom: 1px solid #1ca4a8;
+}
+
+#filterInp{
+    color: white;
+}
+.fa-search{
+    color: white;
+}

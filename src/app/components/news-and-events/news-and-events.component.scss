@@ -1,0 +1,48 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@include media-breakpoint-only(xs){
+    
+}
+@include media-breakpoint-only(sm){
+    
+}
+@include media-breakpoint-up(md){
+    .glass{
+        padding-top: 10vh;
+        height: 100vh;
+    }
+    .scroll-container::-webkit-scrollbar {
+        width: 0px;  /* remove scrollbar space */
+        background: transparent;  /* optional: just make scrollbar invisible */
+    }
+    .scroll-container{
+        height: inherit;
+        overflow-y: scroll
+    }
+    .nav-link h2{
+        font-size: 3.4rem;
+    }
+    .spacing{
+        height: 10vh;
+    }
+    .card{
+        margin-bottom: 10vh;
+    }
+}
+.page-background {
+    background: url('assets/Images/backgrounds//virtual_reality/vr_woman.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+.nav-link{
+    cursor: pointer;
+}
+.underline{
+    border-bottom: 1px solid white;
+}
+.card-text{
+    font-weight: lighter;
+}
+.close{
+    font-size: 2.4rem;
+}

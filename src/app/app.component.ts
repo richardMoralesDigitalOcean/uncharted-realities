@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
     home: '#86c232',
     worlds: '#116466',
     vendors: '#cb2d6f',
+    newsAndEvents: 'white',
     // about: '#00887a',
     about: 'white',
     contact: '#faed26',
@@ -71,27 +72,6 @@ export class AppComponent implements OnInit {
       sessionStorage.setItem('menuState', this.menuState.toString());
     }
   }
-  /*
-  ensureProperNavigation(router: Router, location: Location): void {
-   router.events.subscribe((val) => {
-     switch (location.path()) {
-      case '': {
-        this.route = 'home';
-        break;
-      }
-      default: {
-        if()
-      }
-     }
-      if (location.path() !== '') {
-        this.route = location.path();
-      } else {
-        this.route = 'home';
-
-        // self.router.navigate(['/SignIn'])
-      }
-    });
-  }*/
   navigation(event): void {
     /*
       + Get the clicked sideNav element and extract id attribute to get new path

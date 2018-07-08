@@ -16,6 +16,7 @@ import { GlassCardComponent } from './glass-card/glass-card.component';
 import { ShopComponent } from './components/Shop/shop.component';
 import { ShopProfileComponent } from './components/shop-profile/shop-profile.component';
 import { ReservationComponent } from './components/Reservation/reservation.component';
+import { NewsAndEventsComponent } from './components/news-and-events/news-and-events.component';
 
 const appRoutes = [
   { path: 'home', component: HomeComponent },
@@ -25,6 +26,7 @@ const appRoutes = [
   { path: 'worlds', component: WorldsComponent },
   {path: 'shop', component: ShopComponent},
   {path: 'reservations', component: ReservationComponent},
+  {path: 'newsAndEvents', component: NewsAndEventsComponent},
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -45,7 +47,8 @@ const appRoutes = [
     GlassCardComponent,
     ShopComponent,
     ShopProfileComponent,
-    ReservationComponent
+    ReservationComponent,
+    NewsAndEventsComponent
   ],
   imports: [
     BrowserModule,

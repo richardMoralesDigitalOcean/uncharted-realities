@@ -1,0 +1,70 @@
+<div class='page-background'>
+    <div class="glass">
+        <div class="container scroll-container">
+          <div class="row">
+            <div class="col">
+              <ul class="nav justify-content-center" style="margin-bottom: 5vh;">
+                  <li class="nav-item">
+                      <a 
+                      [ngClass]="view === 'news'? 'nav-link underline':'nav-link'" 
+                      id="showVisitorForm" 
+                      role="button" 
+                      (click)="toggleView('news')"
+                      >
+                          <h2>News</h2>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a 
+                      [ngClass]="view === 'events'? 'nav-link underline':'nav-link'" 
+                      id="showVendorForm" 
+                      class="nav-link" 
+                      role="button" 
+                      (click)="toggleView('events')">
+                          <h2>Events</h2>
+                      </a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row justify-content-center" *ngIf="view != 'readMore' else readMore">
+            <div class="col-md-9">
+              <div class="card">
+                <img class="card-img-top" src="assets/Images/backgrounds/futurescape/futurescape_neon_black_neon_blue.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h2 class="card-title">New Samsung VR Out Today!</h2>
+                  <p class="card-text">
+                    Samsungs done it again! With today's release, they've built upon their already
+                    well established VR platform to...
+                  </p>
+                  <button 
+                  type="button" 
+                  class="btn btn-primary btn-lg float-right"
+                  (click)="toggleView('readMore')">
+                    Read More
+                </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #readMore>
+              <div class="row">
+                <div class="col-sm-6">
+                  <h2>Title</h2>
+                </div>
+                <div class="col-sm-6">
+                    <button 
+                    type="button" 
+                    class="close" 
+                    aria-label="Close"
+                    (click)="closeDocument()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                Read More
+
+              </div>
+          </ng-template>
+        </div>
+    </div>
+</div>

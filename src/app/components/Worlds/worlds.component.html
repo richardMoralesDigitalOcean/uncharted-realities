@@ -1,82 +1,184 @@
+
 <div class='page-background'>
-</div>
-<div class='container pageContainer'  [ngSwitch]="view">
-    <div 
-    *ngSwitchCase="'worlds'"
-    >
-        <div class="row">
-            <div 
-            class="col-xs-1 nav-btn nav-btn-left"
-            [ngSwitch]="pageIndex != 0">
-                <button 
-                *ngSwitchCase="true"
-                class="btn btn-default" 
-                (click)="navigateWorlds('left')"> 
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button 
-                *ngSwitchCase="false"
-                class="btn btn-default"> 
-                    <i class="fas fa-chevron-left" style="color: #ddd"></i>
-                </button>
-            </div>
-            <div class="col">
+    <div class='glass'  [ngSwitch]="view">
+        <div class="container">
+            <div>
                 <div 
-                class="card card-invisible text-center"
-                style="background:transparent; border:none">
-                    <div class="card-body">
-                        <div class="container-fluid">
-                            <div class="row search-container-right">
-                                <div class="col-sm-6">
-                                    <div class="input-group input-group-lg transparent-input">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroup-sizing-lg">
-                                                <i class="fas fa-search"></i>
-                                            </span>
+                *ngSwitchCase="'worlds'"
+                >
+                    <div class="row">
+                        <div 
+                        class="col-xs-1 nav-btn nav-btn-left"
+                        [ngSwitch]="pageIndex != 0">
+                            <button 
+                            *ngSwitchCase="true"
+                            class="btn btn-default"
+                            style="z-index: 1000;" 
+                            (click)="navigateWorlds('left')"> 
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button 
+                            *ngSwitchCase="false"
+                            style="z-index: 1000;
+                            cursor: default;" 
+                            class="btn btn-default"> 
+                                <i class="fas fa-chevron-left" style="color: #ddd"></i>
+                            </button>
+                        </div>
+                        <div class="col">
+                            <div 
+                            class="card card-invisible text-center"
+                            style="background:transparent; border:none">
+                                <div class="card-body">
+                                    <div class="container-fluid">
+                                        <div class="row search-container-right">
+                                            <div class="col-sm-6">
+                                                <div class="input-group input-group-lg transparent-input">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-lg">
+                                                            <i class="fas fa-search"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input id="filterInp" #filterInp type="text" class="form-control" 
+                                                    aria-label="Small" aria-describedby="inputGroup-sizing-lg" 
+                                                    placeholder="Search our worlds"
+                                                    (input)="filterWorlds(filterInp.value)">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <input id="filterInp" #filterInp type="text" class="form-control" 
-                                        aria-label="Small" aria-describedby="inputGroup-sizing-lg" 
-                                        placeholder="Search our worlds"
-                                        (input)="filterWorlds(filterInp.value)">
+                                        <div class="row">
+                                            <div class="col-sm-4"  *ngFor="let world of activeWorlds;">
+                                                <div class="card card-world" style="margin-top: 5vh;" (click)="showProfile(world)">
+                                                    <img class="card-img-top" [src]="world.src" alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <p class="card-text world-title center">
+                                                            {{world.title}}
+                                                        </p>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-4"  *ngFor="let world of activeWorlds;">
-                                    <div class="card card-world" style="margin-top: 5vh;" (click)="showProfile(world)">
-                                        <img class="card-img-top" [src]="world.src" alt="Card image cap">
-                                        <div class="card-body">
-                                            <p class="card-text world-title center">
-                                                {{world.title}}
-                                            </p>
-                                        </div>
-                                    </div>  
-                                </div>
-                            </div>
+                        </div>
+                        <div class="col-xs-1 nav-btn nav-btn-right" [ngSwitch]="pageIndex * 6 + 6 <= worlds.length">
+                            <button 
+                            *ngSwitchCase="true" 
+                            class="btn btn-default" 
+                            style="z-index: 1000;"
+                            (click)="navigateWorlds('right')"> 
+                                <i class="fas fa-chevron-right"></i>        
+                            </button>
+                            <button 
+                            *ngSwitchCase="false" 
+                            style="z-index: 1000;
+                            cursor: default;" 
+                            class="btn btn-default"> 
+                                <i class="fas fa-chevron-right" style="color: #ddd"></i>        
+                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-1 nav-btn nav-btn-right" [ngSwitch]="pageIndex * 6 + 6 <= worlds.length">
-                <button 
-                *ngSwitchCase="true" 
-                class="btn btn-default" 
-                (click)="navigateWorlds('right')"> 
-                    <i class="fas fa-chevron-right"></i>        
-                </button>
-                <button 
-                *ngSwitchCase="false" 
-                class="btn btn-default"> 
-                    <i class="fas fa-chevron-right" style="color: #ddd"></i>        
-                </button>
+                <div 
+                *ngSwitchCase="'profile'"
+                id="profile">
+                    <app-profile [profile]="activeWorld" [theme]="theme" [hideFunc]="hideProfile"></app-profile>
+                </div>
             </div>
         </div>
     </div>
-    <div 
-    *ngSwitchCase="'profile'"
-    id="profile">
-        <app-profile [profile]="activeWorld" [theme]="theme" [hideFunc]="hideProfile"></app-profile>
+</div>
+
+
+
+
+<!--<div class='page-background pageContainer'>
+    <div class='container'  [ngSwitch]="view">
+        <div class="glass">
+            <div class="container-fluid scrollContainer">
+                <div 
+                *ngSwitchCase="'worlds'"
+                >
+                    <div class="row">
+                        <div 
+                        class="col-xs-1 nav-btn nav-btn-left"
+                        [ngSwitch]="pageIndex != 0">
+                            <button 
+                            *ngSwitchCase="true"
+                            class="btn btn-default"
+                            style="z-index: 1000;" 
+                            (click)="navigateWorlds('left')"> 
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button 
+                            *ngSwitchCase="false"
+                            class="btn btn-default"> 
+                                <i class="fas fa-chevron-left" style="color: #ddd"></i>
+                            </button>
+                        </div>
+                        <div class="col">
+                            <div 
+                            class="card card-invisible text-center"
+                            style="background:transparent; border:none">
+                                <div class="card-body">
+                                    <div class="container-fluid">
+                                        <div class="row search-container-right">
+                                            <div class="col-sm-6">
+                                                <div class="input-group input-group-lg transparent-input">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-lg">
+                                                            <i class="fas fa-search"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input id="filterInp" #filterInp type="text" class="form-control" 
+                                                    aria-label="Small" aria-describedby="inputGroup-sizing-lg" 
+                                                    placeholder="Search our worlds"
+                                                    (input)="filterWorlds(filterInp.value)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4"  *ngFor="let world of activeWorlds;">
+                                                <div class="card card-world" style="margin-top: 5vh;" (click)="showProfile(world)">
+                                                    <img class="card-img-top" [src]="world.src" alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <p class="card-text world-title center">
+                                                            {{world.title}}
+                                                        </p>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 nav-btn nav-btn-right" [ngSwitch]="pageIndex * 6 + 6 <= worlds.length">
+                            <button 
+                            *ngSwitchCase="true" 
+                            class="btn btn-default" 
+                            style="z-index: 1000;"
+                            (click)="navigateWorlds('right')"> 
+                                <i class="fas fa-chevron-right"></i>        
+                            </button>
+                            <button 
+                            *ngSwitchCase="false" 
+                            class="btn btn-default"> 
+                                <i class="fas fa-chevron-right" style="color: #ddd"></i>        
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div 
+                *ngSwitchCase="'profile'"
+                id="profile">
+                    <app-profile [profile]="activeWorld" [theme]="theme" [hideFunc]="hideProfile"></app-profile>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+-->
 
 

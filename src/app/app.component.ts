@@ -13,14 +13,21 @@ export class AppComponent implements OnInit {
   menuState = false;
   route: string;
   href = '';
-  colorSchemes: any = {
+  unusedColors: any = {
     home: '#86c232',
     worlds: '#116466',
     vendors: '#cb2d6f',
+    contact: '#faed26',
+    about: '#00887a'
+  };
+  colorSchemes: any = {
+    home: 'white',
+    worlds: 'white',
+    vendors: 'white',
     newsAndEvents: 'white',
     // about: '#00887a',
     about: 'white',
-    contact: '#faed26',
+    contact: 'white',
     shop: 'white'
   };
   constructor(private _route: ActivatedRoute, private router: Router, private location: Location) {

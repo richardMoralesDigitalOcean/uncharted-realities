@@ -1,6 +1,8 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @include media-breakpoint-only(xs){
-    
+    .spacing{
+        height: 10vh;
+    }
 }
 @include media-breakpoint-only(sm){
     
@@ -18,15 +20,17 @@
         height: inherit;
         overflow-y: scroll
     }
+  
     .nav-link h2{
         font-size: 3.4rem;
     }
     .spacing{
         height: 10vh;
     }
+    /*
     .card{
         margin-bottom: 10vh;
-    }
+    }*/
 }
 .page-background {
     background: url('assets/Images/backgrounds//virtual_reality/vr_woman.jpg');
@@ -40,9 +44,31 @@
 .underline{
     border-bottom: 1px solid white;
 }
+.cardContainer:last-child{
+    margin-bottom: 10vh;
+}
+.card-header{
+    background: white;
+    min-height: 15vh;
+}
+.card-header .card-title{
+    font-size: 2.4rem;
+}
+.card-header .authorDate{
+    color: #ddd;
+    font-weight: lighter;
+    font-size: 2.0rem;
+}
 .card-text{
     font-weight: lighter;
 }
 .close{
     font-size: 2.4rem;
+    color: black;
+}
+.readMore{
+    margin-bottom: 10vh;
+}
+.readMore .title{
+    color: white;
 }

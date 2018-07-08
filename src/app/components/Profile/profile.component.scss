@@ -1,0 +1,32 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@include media-breakpoint-only(xs) {
+    .profile-image img{
+        height: 35vh;
+       width: inherit;
+    }
+   
+}
+@include media-breakpoint-only(sm) {
+    .profile-image img{
+        height: 55vh;
+        width: inherit;
+    }
+}
+@include media-breakpoint-up(md) {
+    .profile-image img{
+        height: 35vh;
+        max-width: 70vw;
+    }
+}
+.return-btn{
+    background: transparent;
+    float: right;
+    color: black;
+}
+.return-btn:hover{
+    color: white;
+}
+.fa-circle{
+    margin-right: 15px;
+    font-size: .5rem;
+}

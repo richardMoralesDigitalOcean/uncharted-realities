@@ -1,9 +1,28 @@
 
 @import "~bootstrap/scss/bootstrap.scss";
+//
+@include media-breakpoint-down(sm) {
+    .experience-list p:last-child{
+         margin-bottom: 10vh;
+     }
+     .card-title{
+         text-align: center;
+     }
+     .card-text{
+        text-align: justify;
+     }
+     .experience-list p{
+        text-align: justify;
+     }
+     .btnRow{
+         justify-content: center;
+     }
+ }
 @include media-breakpoint-up(md) {
    .container-row{
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 }
 .page-background {

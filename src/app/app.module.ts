@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NguCarouselModule } from '@ngu/carousel';
@@ -17,6 +18,8 @@ import { ShopComponent } from './components/Shop/shop.component';
 import { ShopProfileComponent } from './components/shop-profile/shop-profile.component';
 import { ReservationComponent } from './components/Reservation/reservation.component';
 import { NewsAndEventsComponent } from './components/news-and-events/news-and-events.component';
+
+import {DocumentConverterService} from './Services/document-converter.service';
 
 const appRoutes = [
   { path: 'home', component: HomeComponent },
@@ -53,10 +56,11 @@ const appRoutes = [
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
     NguCarouselModule
   ],
-  providers: [WorldsPipe],
+  providers: [WorldsPipe, DocumentConverterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -52,4 +52,35 @@ export class ContactComponent {
       email: ['​info@unchartedrealities.com', Validators.required ],
     });
   }
+  sendEmail(): void {
+    const type = this.form;
+    let contactObj: any = null;
+    let body = '';
+    switch (type) {
+      case 'vendor':
+        contactObj = this.vendorForm.value;
+        body = `From: ${contactObj.firstName + ' ' + contactObj.lastName} \n
+                Email: ${contactObj.email} \n
+                Phone: ${contactObj.phone} \n
+                Message: ${contactObj.message} \n
+                Company: ${contactObj.companyName} \n
+                Company Address: ${contactObj.companyAddress} \n
+                Product Type: ${contactObj.productType} \n
+                Subject: ${contactObj.subject} \n
+                Message: ${contactObj.message}`;
+        break;
+      case 'visitor':
+        contactObj = this.visitorForm.value;
+        body = `From: ${contactObj.firstName + ' ' + contactObj.lastName} \n
+                Email: ${contactObj.email} \n
+                Phone: ${contactObj.phone} \n
+                Message: ${contactObj.message}`;
+        break;
+      default:
+        break;
+    }
+    console.log('Contact Obj', contactObj);
+    console.log(body);
+    window.open(`mailto:​info@unchartedrealities.com?subject=subject&body=${body}`);
+  }
 }

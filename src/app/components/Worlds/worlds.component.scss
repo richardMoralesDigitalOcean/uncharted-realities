@@ -3,18 +3,24 @@
     .pageContainer{
         margin-top: 5vh;
     }
+    .glass{
+        height: 100vh;
+    }
+    .card:last-child{
+        margin-bottom: 10vh;
+    }
     .nav-btn{
         height: 80vh;
         position: fixed;
+        z-index: 1000;
     }
     
-    .nav-btn-left{
-        left: 5vw;
+    .nav-btn-left button{
     }
     .nav-btn-right{
-        left: 88vw;
-        justify-content: flex-end;
+        left: 90vw;
     }
+   
 }
 @include media-breakpoint-only(sm) { 
     .nav-btn{
@@ -34,11 +40,14 @@
     .nav-btn-right{
         justify-content: flex-end;
     }
-    .pageContainer{
+    .page-background{
         display: flex;
         align-items: center;
-        height: 88vh;
+        justify-content: center;
     }
+}
+.glass{
+    background: transparent;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;

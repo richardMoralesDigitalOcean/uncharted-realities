@@ -18,6 +18,7 @@
     background: url('assets/Images/backgrounds/futurescape/futurescape_black.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    background-attachment: fixed;
 }
 .neon-bold-blue{
     color: rgb(28, 164, 168);
@@ -35,6 +36,8 @@ blockquote{
     font-weight: bold;
     font-size: 1.6rem;
     margin-bottom: 10vh;
+    color: black;
+    text-align: justify;
 }
 .detail-list i{
     font-size: 4rem;

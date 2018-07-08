@@ -3,9 +3,12 @@
     .spacing{
         height: 10vh;
     }
+   
 }
 @include media-breakpoint-only(sm){
-    
+    img{
+        height: 60vh;
+    }
 }
 @include media-breakpoint-up(md){
     .glass{
@@ -27,10 +30,9 @@
     .spacing{
         height: 10vh;
     }
-    /*
-    .card{
-        margin-bottom: 10vh;
-    }*/
+    img{
+        height: 60vh;
+    }
 }
 .page-background {
     background: url('assets/Images/backgrounds//virtual_reality/vr_woman.jpg');
@@ -55,9 +57,13 @@
     font-size: 2.4rem;
 }
 .card-header .authorDate{
-    color: #ddd;
+    color: #2e2e2e;
     font-weight: lighter;
     font-size: 2.0rem;
+}
+.authorDate{
+    color: #2e2e2e;
+    font-weight: lighter;
 }
 .card-text{
     font-weight: lighter;

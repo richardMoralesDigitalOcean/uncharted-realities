@@ -4,6 +4,20 @@
         display: flex;
         justify-content: center;
     }
+    .menuBtn i{
+        font-size: 3.8rem;
+    }
+}
+@include media-breakpoint-only(sm) {
+    
+    .menuBtn i{
+        font-size: 2.8rem;
+    }
+}
+@include media-breakpoint-up(md){
+    .menuBtn i{
+        font-size: 3.2rem;
+    }
 }
 .appContainer{
     /*background: #222629;*/

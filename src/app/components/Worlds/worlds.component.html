@@ -39,7 +39,10 @@
                                                             <i class="fas fa-search"></i>
                                                         </span>
                                                     </div>
-                                                    <input id="filterInp" #filterInp type="text" class="form-control" 
+                                                    <input id="filterInp" #filterInp 
+                                                    type="text" 
+                                                    style="font-family: NeoSans"
+                                                    class="form-control" 
                                                     aria-label="Small" aria-describedby="inputGroup-sizing-lg" 
                                                     placeholder="Search our worlds"
                                                     (input)="filterWorlds(filterInp.value)">
@@ -51,7 +54,7 @@
                                                 <div class="card card-world" style="margin-top: 5vh;" (click)="showProfile(world)">
                                                     <img class="card-img-top" [src]="world.src" alt="Card image cap">
                                                     <div class="card-body">
-                                                        <p class="card-text world-title center">
+                                                        <p class="card-text world-title center NeoSansMed">
                                                             {{world.title}}
                                                         </p>
                                                     </div>

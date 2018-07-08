@@ -47,8 +47,8 @@
     background:transparent;
 }
 .card-invisible h1.card-title {
-    color: white;
-    font-weight: bold;
+    color: #2e2e2e;
+    font-weight: lighter;
 }
 
 .card-text>.container{
@@ -67,10 +67,15 @@
     display: flex;
     justify-content: center;
 }
-
+blockquote{
+    font-weight: lighter;
+    font-family: NeoSans-light;
+    font-style: oblique;
+}
 .neon-bold-green{
     color: #86C232
 }
 .experience-list p{
     color: black;
+    font-family: NeoSans-light;
 }

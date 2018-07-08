@@ -3,7 +3,7 @@
         <div #scrollContainer class="container scroll-container">
           <div class="row">
             <div class="col">
-              <ul class="nav justify-content-center" style="margin-bottom: 5vh;">
+              <ul class="nav justify-content-center NeoSans" style="margin-bottom: 5vh;">
                   <li class="nav-item">
                       <a 
                       [ngClass]="view === 'news'? 'nav-link underline':'nav-link'" 
@@ -35,9 +35,9 @@
                 <div [id]="document.id" class="card">
                   <img class="card-img-top" [src]="document.src" alt="Card image cap">
                   <div class="card-body">
-                    <h2 class="card-title">{{document.title}}</h2>
-                    <h4 class="authorDate" style="font-weight: normal">{{document.author+" | "+document.date}}</h4>
-                    <p class="card-text text-truncate">
+                    <h2 class="card-title" style="font-family: NeoSans-med">{{document.title}}</h2>
+                    <h4 class="authorDate NeoSansLight" style="font-weight: normal">{{document.author+" / "+document.date}}</h4>
+                    <p class="card-text text-truncate NeoSansLight">
                      {{document.body}}
                     </p>
                     <button 
@@ -58,8 +58,8 @@
                       <div class="card-header">
                         <div class="row">
                             <div class="col-sm-10">
-                                <h2 class="card-title">{{activeDocument.title}}</h2>
-                                <h4 class="authorDate">{{activeDocument.author+" | "+activeDocument.date}}</h4>
+                                <h2 class="card-title" style="font-family: NeoSans-med">{{activeDocument.title}}</h2>
+                                <h4 class="authorDate NeoSansLight">{{activeDocument.author+" / "+activeDocument.date}}</h4>
                             </div>
                             <div class="col-sm-2">
                                 <button 
@@ -76,7 +76,7 @@
                         <div class="card-body">
                           <div class="row">
                               <div class="col-sm-12">
-                                <p class="card-text">{{activeDocument.body}}</p>
+                                <p class="card-text NeoSansLight">{{activeDocument.body}}</p>
                               </div>
                           </div>
                         </div>

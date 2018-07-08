@@ -148,6 +148,31 @@
     font-family: NeoSans;
     src: url("../assets/Fonts/NeoSans/NeoSans_Dark.otf") format("opentype");
 }
+@font-face {
+    font-family: NeoSans-light;
+    src: url("../assets/Fonts/NeoSans/NeoSans_Light_Italic.otf") format("opentype");
+}
+@font-face {
+    font-family: NeoSans-med;
+    src: url("../assets/Fonts/NeoSans/NeoSans_Italic.otf") format("opentype");
+}
+@font-face {
+    font-family: NeoSans-italic;
+    src: url("../assets/Fonts/NeoSans/NeoSans_Medium_Italic.otf") format("opentype");
+}
+.NeoSans{
+    font-family: NeoSans;
+}
+.NeoSansLight{
+    font-family: NeoSans-light;
+    font-style: oblique;
+}
+.NeoSansMed{
+    font-family:  NeoSans-med;
+}
+.NeoSansItalic{
+    font-family:  NeoSans-italic;
+}
 /* You can add global styles to this file, and also import other style files */
 
 /** Standardize Font-Sizes **/

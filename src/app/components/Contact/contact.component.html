@@ -3,13 +3,13 @@
         <div class="container">
             <div class="card card-invisible text-center">
                 <div class="card-body" style="color: white">
-                    <h1 class="card-title" style="color: black">
+                    <h1 class="card-title" style="color: black; font-family: NeoSans;">
                         Contact Us
                     </h1>
                     <div class="container">
                         <div class="row">
                             <div class="col-12 col-sm-6 col-md-6">
-                                <ul class="nav justify-content-center" style="margin-bottom: 5vh;">
+                                <ul class="nav justify-content-center" style="margin-bottom: 5vh; font-family: NeoSans-light">
                                         <li class="nav-item">
                                             <a  [ngClass]="form=== 'visitor'? 'nav-link underline':'nav-link'" id="showVisitorForm" 
                                             role="button" (click)="toggleForm('visitor')"
@@ -23,7 +23,11 @@
                                             </a>
                                         </li>
                                 </ul>
-                                <form *ngIf="form === 'visitor' " id="visitorForm" [formGroup]="visitorForm">
+                                <form 
+                                *ngIf="form === 'visitor' " 
+                                id="visitorForm" 
+                                [formGroup]="visitorForm"
+                                style="font-family: NeoSans-light">
                                     <div class="form-group">
                                         <label for="visitorFirstName">First Name</label>
                                         <input type="text" class="form-control" id="visitorFirstName" 
@@ -54,7 +58,12 @@
                                         formControlName="message"></textarea>
                                     </div>
                                 </form>
-                                <form *ngIf="form === 'vendor' " id="vendorForm" [formGroup]="vendorForm">
+                                <form 
+                                *ngIf="form === 'vendor' " 
+                                id="vendorForm" 
+                                [formGroup]="vendorForm"
+                                style="font-family: NeoSans-light"
+                                >
                                     <div class="form-group">
                                         <label for="vendorFirstName">First Name</label>
                                         <input type="text" class="form-control" id="vendorFirstName" 
@@ -113,14 +122,15 @@
                                 </form>
                                 <button 
                                 type="button" 
+                                style="font-family: NeoSans"
                                 class="btn btn-dark btn-lg" 
                                 (click)="sendEmail()">Submit</button>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 contact-info">
-                                <h2>
+                                <h2 style="font-family: NeoSans-light">
                                     Contact Information
                                 </h2>
-                                <form [formGroup]="contactForm">
+                                <form id="contactForm" [formGroup]="contactForm">
                                     <div class="form-group row">
                                         <label for="address" class="col-sm-12 col-form-label">Address</label>
                                         <div class="col-sm-12">

@@ -2,17 +2,17 @@
     <div class="row logoContainer">
         <div class="col">
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" 
+                <button class="btn btn-secondary dropdown-toggle NeoSans menuBtn" 
                 type="button" id="navBtn"
                 data-toggle="dropdown" 
                 aria-haspopup="true" 
                 aria-expanded="false"
                 style="font-size: 12px;
                 background-color: transparent;
-                border: none">
-                        <i class="fas fa-bars nav-menu-toggle-btn"></i> Menu
+                border: none; font-family: NeoSans">
+                        <i class="fas fa-bars nav-menu-toggle-btn"></i> 
                 </button>
-                <div class="dropdown-menu bg-secondary" aria-labelledby="navBtn">
+                <div style="font-family: NeoSans; font-size: 1.4rem;" class="dropdown-menu bg-secondary" aria-labelledby="navBtn">
                     <a class="dropdown-item" routerLink="/home" routerLinkActive="active" id="home" class="nav-link text-white" (click) = "navigation($event)">Home</a>
                     <a class="dropdown-item" routerLink="/worlds" routerLinkActive="active" id="worlds" class="nav-link text-white" (click) = "navigation($event)">Worlds</a>
                     <a class="dropdown-item" routerLink="/newsAndEvents" routerLinkActive="active" id="newsAndEvents" class="nav-link text-white"  (click) = "navigation($event)">News & Events</a>

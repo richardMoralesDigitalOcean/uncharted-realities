@@ -1,106 +1,206 @@
 <div class='page-background'>
     <div class="glass">
         <div #scrollContainer class="container scroll-container">
-          <div class="row">
+            <div class="row">
             <div class="col">
-              <ul class="nav justify-content-center NeoSans" style="margin-bottom: 5vh;">
-                  <li class="nav-item">
-                      <a 
-                      [ngClass]="view === 'news'? 'nav-link underline':'nav-link'" 
-                      id="showVisitorForm" 
-                      role="button" 
-                      (click)="toggleView('news')"
-                      >
-                          <h2>News</h2>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a 
-                      [ngClass]="view === 'events'? 'nav-link underline':'nav-link'" 
-                      id="showVendorForm" 
-                      class="nav-link" 
-                      role="button" 
-                      (click)="toggleView('events')">
-                          <h2>Events</h2>
-                      </a>
-                  </li>
-              </ul>
+                <ul class="nav justify-content-center NeoSans" style="margin-bottom: 5vh;">
+                    <li class="nav-item">
+                        <a 
+                        class="nav-link"
+                        [ngClass]="view === 'news'? 'underline':''" 
+                        id="showVisitorForm" 
+                        role="button" 
+                        (click)="toggleView('news')"
+                        >
+                            <h2>News</h2>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a 
+                        class="nav-link"
+                        [ngClass]="view === 'events'? 'underline':'nav-link'" 
+                        id="showVendorForm" 
+                        class="nav-link" 
+                        role="button" 
+                        (click)="toggleView('events')">
+                            <h2>Events</h2>
+                        </a>
+                    </li>
+                </ul>
             </div>
-          </div>
-          <ng-container *ngIf="view != 'readMore' else readMore">
-            <div 
-            *ngFor="let document of documents"
-            class="cardContainer row justify-content-center" >
-              <div class="col-md-9">
-                <div [id]="document.id" class="card">
-                  <img class="card-img-top" [src]="document.src" alt="Card image cap">
-                  <div class="card-body">
-                    <h2 class="card-title" style="font-family: NeoSans-med">{{document.title}}</h2>
-                    <h4 class="authorDate NeoSansLight" style="font-weight: normal">{{document.author+" / "+document.date}}</h4>
-                    <p class="card-text text-truncate NeoSansLight">
-                     {{document.body}}
-                    </p>
-                    <button 
-                    type="button" 
-                    class="btn btn-primary btn-lg float-right"
-                    (click)="toggleView('readMore', document.id, document)">
-                      Read More
-                  </button>
-                  </div>
-                </div>
-              </div>
             </div>
-         </ng-container>
-          <ng-template #readMore>
-              <div class="row readMore">
-                <div class="col-12">
-                    <div [id]="activeDocument.id" class="card">
-                      <div class="card-header">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <h2 class="card-title" style="font-family: NeoSans-med">{{activeDocument.title}}</h2>
-                                <h4 class="authorDate NeoSansLight">{{activeDocument.author+" / "+activeDocument.date}}</h4>
-                            </div>
-                            <div class="col-sm-2">
-                                <button 
-                                type="button" 
-                                class="close" 
-                                aria-label="Close"
-                                (click)="closeDocument()">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                      </div>
-                        <img class="card-img-top" [src]="activeDocument.src" alt="Card image cap">
+            <ng-container *ngIf="view != 'readMore'">
+                <ng-container #newsList *ngIf="view != 'events' else eventsList">
+                    <div 
+                    *ngFor="let document of documents"
+                    class="cardContainer row justify-content-center" >
+                    <div class="col-md-9">
+                        <div [id]="document.id" class="card">
+                        <img class="card-img-top" [src]="document.imgSrc" alt="Card image cap">
                         <div class="card-body">
-                          <div class="row">
-                              <div class="col-sm-12">
-                                <p class="card-text NeoSansLight">{{activeDocument.body}}</p>
-                              </div>
-                          </div>
+                            <h2 class="card-title" style="font-family: NeoSans-med">{{document.title}}</h2>
+                            <h4 class="authorDate NeoSansLight" style="font-weight: normal">{{document.author+" / "+document.date}}</h4>
+                            <p class="card-text text-truncate NeoSansLight" [innerHtml]="document.body">
+                            </p>
+                            <button 
+                            type="button" 
+                            class="btn btn-primary btn-lg float-right"
+                            (click)="toggleView('readMore', document.id, document)">
+                            Read More
+                        </button>
+                        </div>
                         </div>
                     </div>
-                </div>
-                <!--<div class="col-sm-10">
-                  <h2 class='title'>{{activeDocument.title}}</h2>
-                  <h4>{{activeDocument.author+" | "+activeDocument.date}}</h4>
-                </div>
-                <div class="col-sm-2">
-                    <button 
-                    type="button" 
-                    class="close" 
-                    aria-label="Close"
-                    (click)="closeDocument()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="col-sm-12">
-                  <blockquote>{{activeDocument.body}}</blockquote>
-                </div>
-              -->
-              </div>
-          </ng-template>
+                    </div>
+                    <div class="row alignCenter">
+                        <button 
+                        type = "button" 
+                        class="btn btn-success"
+                        (click)="getNewssDocs(dateUBoundNews)">
+                            Get More!
+                        </button>
+                    </div>
+                </ng-container>
+                <ng-container #eventsList *ngIf="view != 'news' else newsList">
+                    <div 
+                    *ngFor="let document of documents"
+                    class="cardContainer row justify-content-center" >
+                    <div class="col-md-9">
+                        <div [id]="document.id" class="card">
+                        <img class="card-img-top" [src]="document.imgSrc" alt="Card image cap">
+                        <div class="card-body">
+                            <h2 class="card-title" style="font-family: NeoSans-med">{{document.title}}</h2>
+                            <h4 class="authorDate NeoSansLight" style="font-weight: normal">{{document.date}}</h4>
+                            <h4 class="authorDate NeoSansLight" style="font-weight: normal">{{document.startTime+"-"+document.endTime}}</h4>
+                            <h4 class="authorDate NeoSansLight" style="font-weight: normal">{{document.location}}</h4>
+                            <p class="card-text text-truncate NeoSansLight" [innerHtml]="document.body">
+                            </p>
+                            <button 
+                            type="button" 
+                            class="btn btn-primary btn-lg float-right"
+                            (click)="toggleView('readMore', document.id, document)">
+                            Read More
+                        </button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row alignCenter">
+                        <button 
+                        type = "button" 
+                        class="btn btn-success"
+                        (click)="getEventsDocs(dateUBoundEvents)">
+                            Get More!
+                        </button>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <ng-container #readMore *ngIf="view ==='readMore'">
+                    <ng-container #newsReadMore *ngIf="prevView === 'news'">
+                            <div class="row readMore">
+                                <div class="col-12">
+                                    <div [id]="activeDocument.id" class="card">
+                                        <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                                <h2 class="card-title" style="font-family: NeoSans-med">{{activeDocument.title}}</h2>
+                                                <h4 class="authorDate NeoSansLight">{{activeDocument.author+" / "+activeDocument.date}}</h4>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <button 
+                                                type="button" 
+                                                class="close" 
+                                                aria-label="Close"
+                                                (click)="closeDocument()">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <img class="card-img-top" [src]="activeDocument.imgSrc" alt="Card image cap">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                <p class="card-text NeoSansLight" [innerHtml]="activeDocument.body">
+                                                </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                <!--<ng-container #newsReadMore *ngIf="prevView === 'news' else eventsReadMore">
+                    <div class="row readMore">
+                        <div class="col-12">
+                            <div [id]="activeDocument.id" class="card">
+                                <div class="card-header">
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <h2 class="card-title" style="font-family: NeoSans-med">{{activeDocument.title}}</h2>
+                                        <h4 class="authorDate NeoSansLight">{{activeDocument.author+" / "+activeDocument.date}}</h4>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button 
+                                        type="button" 
+                                        class="close" 
+                                        aria-label="Close"
+                                        (click)="closeDocument()">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                </div>
+                                <img class="card-img-top" [src]="activeDocument.imgSrc" alt="Card image cap">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                        <p class="card-text NeoSansLight" [innerHtml]="activeDocument.body">
+                                        </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container #eventsReadMore *ngIf="prevView === 'events' else newsReadMore">
+                    <div class="row readMore">
+                        <div class="col-12">
+                            <div [id]="activeDocument.id" class="card">
+                                <div class="card-header">
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <h2 class="card-title" style="font-family: NeoSans-med">{{activeDocument.title}}</h2>
+                                        <h4 class="authorDate NeoSansLight">{{+activeDocument.date}}</h4>
+                                        <h4 class="authorDate NeoSansLight">{{activeDocument.startTime+"-"+activeDocument.endTime}}</h4>
+                                        <h4 class="authorDate NeoSansLight">{{activeDocument.location}}</h4>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button 
+                                        type="button" 
+                                        class="close" 
+                                        aria-label="Close"
+                                        (click)="closeDocument()">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                </div>
+                                <img class="card-img-top" [src]="activeDocument.imgSrc" alt="Card image cap">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                        <p class="card-text NeoSansLight" [innerHtml]="activeDocument.body">
+                                        </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container> -->
+            </ng-container> 
         </div>
     </div>
 </div>

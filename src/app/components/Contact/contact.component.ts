@@ -47,7 +47,7 @@ export class ContactComponent {
   }
   createContactForm(): void {
     this.contactForm = this.fb.group({
-      address: ['Portland, OR', Validators.required ],
+      address: ['933 SW 3rd Ave, Portland, OR', Validators.required ],
       phone: ['(844)633-0075', Validators.required ],
       email: ['​info@unchartedrealities.com', Validators.required ],
     });

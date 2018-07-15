@@ -13,27 +13,14 @@
                         <i class="fas fa-bars nav-menu-toggle-btn"></i> 
                 </button>
                 <div style="font-family: NeoSans; font-size: 1.4rem;" class="dropdown-menu bg-secondary" aria-labelledby="navBtn">
-                    <a class="dropdown-item" routerLink="/home" routerLinkActive="active" id="home" class="nav-link text-white" (click) = "navigation($event)">Home</a>
-                    <a class="dropdown-item" routerLink="/worlds" routerLinkActive="active" id="worlds" class="nav-link text-white" (click) = "navigation($event)">Worlds</a>
-                    <a class="dropdown-item" routerLink="/newsAndEvents" routerLinkActive="active" id="newsAndEvents" class="nav-link text-white"  (click) = "navigation($event)">News & Events</a>
-                    <a class="dropdown-item" routerLink="/vendors" routerLinkActive="active" id="vendors" class="nav-link text-white" (click) = "navigation($event)">Vendors</a>
-                    <a class="dropdown-item" routerLink="/about" routerLinkActive="active" id="about" class="nav-link text-white" (click) = "navigation($event)">About</a>
-                    <a class="dropdown-item" routerLink="/contact" routerLinkActive="active" id="contact" class="nav-link text-white" (click) = "navigation($event)">Contact Us</a>
+                    <a class="dropdown-item" routerLink="/home" routerLinkActive="active" id="home" class="nav-link text-white" (click) = "handleNavBtnClick($event)">Home</a>
+                    <a class="dropdown-item" routerLink="/worlds" routerLinkActive="active" id="worlds" class="nav-link text-white" (click) = "handleNavBtnClick($event)">Worlds</a>
+                    <a class="dropdown-item" routerLink="/newsAndEvents" routerLinkActive="active" id="newsAndEvents" class="nav-link text-white"  (click) = "handleNavBtnClick($event)">News & Events</a>
+                    <a class="dropdown-item" routerLink="/vendors" routerLinkActive="active" id="vendors" class="nav-link text-white" (click) = "handleNavBtnClick($event)">Vendors</a>
+                    <a class="dropdown-item" routerLink="/about" routerLinkActive="active" id="about" class="nav-link text-white" (click) = "handleNavBtnClick($event)">About</a>
+                    <a class="dropdown-item" routerLink="/contact" routerLinkActive="active" id="contact" class="nav-link text-white" (click) = "handleNavBtnClick($event)">Contact Us</a>
                 </div>
             </div>
-        <!--
-            <button id="navBtn" style="margin-right: 10px; width: 30px;
-                height: 30px;
-                text-align: center;
-                padding: 5px 0;
-                font-size: 12px;
-                line-height: 1.428571429;
-                border-radius: 15px; background-color: transparent;
-                border-color: white;" type="button" class="btn btn-secondary btn-circle">
-             
-            </button><b>Menu</b>
-        -->
-           
         </div>
         <div class="col" style="display: flex; justify-content: center;">
             <img class="logo" src="assets/Images/logos/ur_logo_white.svg" onerror="this.src='assets/Images/logos/ur_logo_white.png'">
@@ -48,7 +35,10 @@
                     font-size: 12px;
                     line-height: 1.428571429;
                     border-radius: 15px; background-color: transparent;
-                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
+                    border-color: white;" 
+                    type="button" 
+                    class="btn btn-secondary btn-circle"
+                    (click)="handleSocialMediaBtnClick('phone')">
                         <i class="fas fa-phone"></i>
                     </button>
                     <button id="facebookBtn" style="margin-right: 10px; width: 30px;
@@ -58,7 +48,10 @@
                     font-size: 12px;
                     line-height: 1.428571429;
                     border-radius: 15px; background-color: transparent;
-                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
+                    border-color: white;" 
+                    type="button" 
+                    class="btn btn-secondary btn-circle"
+                    (click)="handleSocialMediaBtnClick('facebook')">
                         <i class="fab fa-facebook-f"></i>
                     </button>
                     <button id="twitterBtn" style="margin-right: 10px; width: 30px;
@@ -68,7 +61,10 @@
                     font-size: 12px;
                     line-height: 1.428571429;
                     border-radius: 15px; background-color: transparent;
-                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
+                    border-color: white;" 
+                    type="button" 
+                    class="btn btn-secondary btn-circle"
+                    (click)="navBtnNavigation('twitter')">
                         <i class="fab fa-twitter"></i>
                     </button>
                     <button style="margin-right: 10px; width: 30px;
@@ -78,7 +74,10 @@
                     font-size: 12px;
                     line-height: 1.428571429;
                     border-radius: 15px; background-color: transparent;
-                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
+                    border-color: white;" 
+                    type="button" 
+                    class="btn btn-secondary btn-circle"
+                    (click)="handleSocialMediaBtnClick('googlePlus')">
                         <i class="fab fa-google-plus-g"></i>
                     </button>
                     <button id="instagramBtn" style="width: 30px;
@@ -88,7 +87,10 @@
                     font-size: 12px;
                     line-height: 1.428571429;
                     border-radius: 15px; background-color: transparent;
-                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
+                    border-color: white;" 
+                    type="button" 
+                    class="btn btn-secondary btn-circle"
+                    (click)="handleSocialMediaBtnClick('instagram')">
                         <i class="fab fa-instagram"></i>
                     </button>
             </div>
@@ -96,98 +98,3 @@
     </div>
     <router-outlet></router-outlet>
 </div>
-
-
-<!--
-
-    <div class="appContainer container-fluid">
-    <div class="row logoContainer">
-        <div class="col">
-            <button id="phoneNumBtn" style="margin-right: 10px; width: 30px;
-                height: 30px;
-                text-align: center;
-                padding: 5px 0;
-                font-size: 12px;
-                line-height: 1.428571429;
-                border-radius: 15px; background-color: transparent;
-                border-color: white;" type="button" class="btn btn-secondary btn-circle">
-                <i class="fas fa-bars nav-menu-toggle-btn" (click)="toggleMenu()"></i>
-            </button><b>Menu</b>
-           
-        </div>
-        <div class="col" style="display: flex; justify-content: center;">
-            <img class="logo" src="assets/Images/logos/ur_logo_white.svg" onerror="this.src='assets/Images/logos/ur_logo_white.png'">
-        </div>
-        <div class="col">
-            <div style="float: right; margin-top: 2px; margin-bottom: 2px;" 
-                class="btn-group mr-2" role="group" aria-label="First group">
-                <button id="phoneNumBtn" style="margin-right: 10px; width: 30px;
-                    height: 30px;
-                    text-align: center;
-                    padding: 6px 0;
-                    font-size: 12px;
-                    line-height: 1.428571429;
-                    border-radius: 15px; background-color: transparent;
-                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
-                        <i class="fas fa-phone"></i>
-                    </button>
-                    <button id="facebookBtn" style="margin-right: 10px; width: 30px;
-                    height: 30px;
-                    text-align: center;
-                    padding: 6px 0;
-                    font-size: 12px;
-                    line-height: 1.428571429;
-                    border-radius: 15px; background-color: transparent;
-                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
-                        <i class="fab fa-facebook-f"></i>
-                    </button>
-                    <button id="twitterBtn" style="margin-right: 10px; width: 30px;
-                    height: 30px;
-                    text-align: center;
-                    padding: 6px 0;
-                    font-size: 12px;
-                    line-height: 1.428571429;
-                    border-radius: 15px; background-color: transparent;
-                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
-                        <i class="fab fa-twitter"></i>
-                    </button>
-                    <button style="margin-right: 10px; width: 30px;
-                    height: 30px;
-                    text-align: center;
-                    padding: 6px 0;
-                    font-size: 12px;
-                    line-height: 1.428571429;
-                    border-radius: 15px; background-color: transparent;
-                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
-                        <i class="fab fa-google-plus-g"></i>
-                    </button>
-                    <button id="instagramBtn" style="width: 30px;
-                    height: 30px;
-                    text-align: center;
-                    padding: 6px 0;
-                    font-size: 12px;
-                    line-height: 1.428571429;
-                    border-radius: 15px; background-color: transparent;
-                    border-color: white;" type="button" class="btn btn-secondary btn-circle">
-                        <i class="fab fa-instagram"></i>
-                    </button>
-            </div>
-        </div>
-    </div>
-    <div class="row content" style="padding-top: 11vh;">
-        <div class="col-4 col-md-2 navContainer">
-            <nav class="nav flex-column sideNav">
-                <a routerLink="/home" routerLinkActive="active" id="home" class="nav-link" (click) = "navigation($event)">Home</a>
-                <a routerLink="/worlds" routerLinkActive="active" id="worlds" class="nav-link" (click) = "navigation($event)">Worlds</a>
-                <a routerLink="/newsAndEvents" routerLinkActive="active" id="contact" class="nav-link" (click) = "navigation($event)">News & Events</a>
-                <a routerLink="/vendors" routerLinkActive="active" id="vendors" class="nav-link" (click) = "navigation($event)">Vendors</a>
-                <a routerLink="/about" routerLinkActive="active" id="about" class="nav-link" (click) = "navigation($event)">About</a>
-                <a routerLink="/contact" routerLinkActive="active" id="contact" class="nav-link" (click) = "navigation($event)">Contact Us</a>
-            </nav>
-        </div>
-        <div class="col-8 col-md-10 content-area">
-            <router-outlet></router-outlet>
-        </div>
-    </div>
-</div>
--->

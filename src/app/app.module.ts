@@ -30,11 +30,8 @@ const appRoutes = [
   {path: 'shop', component: ShopComponent},
   {path: 'reservations', component: ReservationComponent},
   {path: 'newsAndEvents', component: NewsAndEventsComponent},
-  { path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  { path: '**', component: HomeComponent }
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: '**', redirectTo:  'home', pathMatch: 'full' }
 ];
 
 @NgModule({

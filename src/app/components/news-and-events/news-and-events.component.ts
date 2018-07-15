@@ -1,32 +1,110 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {Document, documentsDummy} from '../../DummyData/news&Events';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { News, Events } from '../../Interfaces/interfaces';
 import {DocumentConverterService} from '../../Services/document-converter.service';
-
+import {format, startOfDay} from 'date-fns';
+import * as compose from 'lodash/fp/compose';
 import * as $ from 'jquery';
 @Component({
   selector: 'app-news-and-events',
   templateUrl: './news-and-events.component.html',
   styleUrls: ['./news-and-events.component.scss']
 })
-export class NewsAndEventsComponent implements OnInit {
+export class NewsAndEventsComponent implements OnInit, AfterViewInit {
   @ViewChild('scrollContainer') scrollContainer;
   view: string;
+  /****************************Scrolling*******************/
   prevView: string; // used when closing a document to get previous view
   prevCardId: string; // used when returning user to previous view to scroll to last viewed card
   prevScrollPosition: number;
-  documents: Document[];
-  activeDocument: Document;
-  documentPageIndex: number;
-  pdf: any;
-  constructor(private documentConverter: DocumentConverterService) {
+  /****************************View and Select Document*******************/
+  activeDocument: Document; // document selected for reading by  user
+  documents: any[]; // all documents that've been loaded for a specific view
+  incomingDocuments: any; // documents loaded from database
+  /*******************For Pagination Of Docs********************/
+  dateUBoundNews: number; // API returns news with date <= dateUBoundNews
+  numRowsNews: number; // Total number rows in docs table
+  newsNumDocsReturned: number; // Used to prevent loading when the last doc in news table already loaded
+  dateUBoundEvents: number; // API returns news with date <= dateUBoundNews
+  numRowsEvents: number; // Total number rows in events table
+  eventsNumDocsReturned: number; // Used to prevent loading when the last doc in events table already loaded
+
+  constructor(private docApi: DocumentConverterService) {
     this.view = 'news';
-    this.documentPageIndex = 0;
-    this.filterDocuments(this.view);
-    this.getDocuments();
-    this.pdf = '';
+    this.newsNumDocsReturned = 0;
+    this.documents = [];
+    this.dateUBoundNews = parseInt(format(new Date(), 'YYYYMMDD'), 10);
+    this.dateUBoundEvents = parseInt(format(new Date(), 'YYYYMMDD'), 10);
+    this.getNewsDocs(this.dateUBoundNews);
+    this.getNumRowsNews();
+    this.getNumRowsEvents();
   }
   ngOnInit() {
     this.trackScroll();
+  }
+  ngAfterViewInit() {
+
+  }
+  getFormattedDocs(existing: any[], incoming: any[]): any[] {
+    /*
+      + Format Incoming Docs so that date displays correctly
+    */
+    const formatted = incoming.map(document => {
+      const formDoc = Object.assign({}, document);
+      const date = document.date;
+      const year = parseInt(date.substring(0, 4), 10) - 1;
+      const month = parseInt(date.substring(4, 6), 10);
+      const day = parseInt(date.substring(6), 0);
+      formDoc.date = format(new Date(year, month, day), 'MMMM DD, YYYY');
+      return formDoc;
+    });
+    return existing.concat(formatted);
+  }
+  removeArrDuplicates(arr: any[]) {
+   return arr.reduce((x, y) => x.findIndex(e => e.id === y.id) < 0 ? [...x, y] : x, []);
+  }
+  getDocumentIndex(docs) {
+    this.newsNumDocsReturned = this.newsNumDocsReturned + docs.length;
+  }
+  getEarliestDate(arr) {
+    return arr.reduce((prev, next) => {
+      if (parseInt(next, 10) <= parseInt(prev, 10)) {
+        return next;
+      } else {
+        return prev;
+      }
+    }, arr[0]);
+  }
+  async getNewsDocs(dateUBound: number) {
+    const newsDocs = await this.docApi.selectFromNewsDB(dateUBound);
+    const incoming = newsDocs.records;
+    const existing = this.documents;
+    console.log('News Docs', newsDocs);
+     const getUniqueFormattedDocs = compose(
+      this.removeArrDuplicates,
+      this.getFormattedDocs
+    );
+    this.documents = getUniqueFormattedDocs(existing, incoming);
+    this.dateUBoundNews = this.getEarliestDate(incoming);
+  }
+  async getEventsDocs(dateUBound: number) {
+    const eventsDocs = await this.docApi.selectFromEventsDB(dateUBound);
+    const incoming = eventsDocs.records;
+    const existing = this.documents;
+    console.log('Events Docs', eventsDocs);
+    const getUniqueFormattedDocs = compose(
+      this.removeArrDuplicates,
+      this.getFormattedDocs
+    );
+    this.documents = getUniqueFormattedDocs(existing, incoming);
+    this.dateUBoundEvents = this.getEarliestDate(incoming);
+  }
+  async getNumRowsNews() {
+    const count = await this.docApi.getNumRowsNewsDB();
+    this.numRowsNews = count;
+  }
+  async getNumRowsEvents() {
+    const count = await this.docApi.getNumRowsEventsDB();
+    this.numRowsEvents = count;
   }
   trackScroll(): void {
     const scrollContainer = document.getElementsByClassName('scroll-container')[0];
@@ -37,31 +115,6 @@ export class NewsAndEventsComponent implements OnInit {
         }
     }, true);
   }
-  getDocumentsFromArray() {
-
-  }
-  getDocuments(): void {
-    // const testEventUrl = 'assets/Documents/Events/testEvent.pdf';
-   // const pdf = this.documentConverter.convertPDF(testEventUrl);
-    // this.pdf = pdf;
-  }
-  filterDocuments(type): void {
-    /*
-      + Filters documents based on the type of view currently chosen
-      + For 'news' view, will get documents with type = 'news'
-      + For 'events' view, will get documents with type = 'event'
-    */
-   console.log('Filtering Documents: ' + type);
-    this.documents = documentsDummy.filter((document) => {
-      return document.type === type;
-    });
-    /*
-    this.documents.map(document()=>{
-      const documentBody = document.body;
-      const bodyPreview = documentBody.
-    });*/
-    console.log('Documents', this.documents);
-  }
   toggleView(type, ...args): void {
     /*
       + Allows users to switch between 'news' and 'events' views
@@ -70,11 +123,17 @@ export class NewsAndEventsComponent implements OnInit {
       + prevView refers to only an 'event' or 'news' page and is thus only set on those types
         It iwas used when closing 'readMore' document
     */
+   console.log('Toggling View', type);
    switch (type) {
      case 'news':
+      this.documents = [];
+      this.prevView = 'news';
+      this.getNewsDocs(this.dateUBoundNews);
+      break;
      case 'events':
-      this.prevView = type;
-      this.filterDocuments(type);
+      this.documents = [];
+      this.prevView = 'events';
+      this.getEventsDocs(this.dateUBoundEvents);
       break;
     default:
       const elemId: string = args[0];
@@ -85,6 +144,8 @@ export class NewsAndEventsComponent implements OnInit {
       break;
    }
     this.view = type;
+    console.log('New View: ' + this.view);
+    console.log('Prev View: ' + this.prevView);
   }
   closeDocument(): void {
     /*

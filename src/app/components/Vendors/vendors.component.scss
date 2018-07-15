@@ -3,6 +3,9 @@
     .glass{
         padding-top: 5vh;
     }
+    blockquote{
+        margin-bottom: 30vh;
+    }
 }
 @include media-breakpoint-up(md){
     .page-background{
@@ -12,6 +15,9 @@
     }
     .glass{
         padding-top: 15vh;
+    }
+    blockquote{
+        margin-bottom: 10vh;
     }
 }
 .page-background {
@@ -35,7 +41,6 @@
 blockquote{
     font-weight: bold;
     font-size: 1.6rem;
-    margin-bottom: 10vh;
     color: black;
     text-align: justify;
 }

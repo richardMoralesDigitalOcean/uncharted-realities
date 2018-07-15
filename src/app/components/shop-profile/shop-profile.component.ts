@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 interface ShopItem {
   type: string;
   colors?: string[];
@@ -8,6 +7,8 @@ interface ShopItem {
   name: string;
   quantity: number;
   src: string;
+  desc: string;
+  tags: string[];
 }
 
 @Component({

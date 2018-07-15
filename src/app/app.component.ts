@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as $ from 'jquery';
@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
     worlds: 'white',
     vendors: 'white',
     newsAndEvents: 'white',
-    // about: '#00887a',
     about: 'white',
     contact: 'white',
     shop: 'white'
@@ -33,53 +32,30 @@ export class AppComponent implements OnInit {
   constructor(private _route: ActivatedRoute, private router: Router, private location: Location) {
   }
   ngOnInit() {
-    this.initSideNav(this.location);
-  }
-  // Set proper menu link to active upon reload
-  initSideNav(location: Location): void {
-    /*
+      /*
       + Get corresponding sideNav element base on initial path
-      + If location is empty, default to home
-      + This will ensure the proper sideNav element is active and
-        displays the left-border
+      + Set active nav button item left border style based on path
     */
-    let loc = this.location.path();
-    if (loc === '') {
-      loc = 'home';
-    }
-    const path = loc.substring(1);
-    const elem = $(`#${path}`);
-    /*
-      + Set corresponding sideNav element to active
-      + Set border color
-    */
-    elem.addClass('active');
-    elem.css('border-left', `2px solid ${this.colorSchemes[path]}`);
-    /*
-      + SideNav State Check
-      + First Check if 'menuState' exists in sessionStorage
-        to prevent null errors for users navigating to site from another site
-      + storedState will either be 'true' or 'false
-      + storedState used to set menuState component variable as well as
-        show or hide sideNav component
-    */
-    const storedState = sessionStorage.getItem('menuState');
-    if (storedState) {
-      switch (storedState) {
-        case 'true':
-          this.menuState = true;
-          $('.navContainer').show();
-          break;
-        default:
-          this.menuState = false;
-          $('.navContainer').hide();
-          break;
-      }
-    } else {
-      sessionStorage.setItem('menuState', this.menuState.toString());
-    }
+    // path example: /home
+    const path = this.getPath(this.location);
+    this.setNavBtnStyle(path.substring(1));
   }
-  navigation(event): void {
+  // getPath:: null -> string
+  getPath(location: Location): string {
+   return this.location.path();
+  }
+  // setNavBtnStyle :: string -> null
+  setNavBtnStyle(path): void {
+    /*
+      + Take sideNav element base on initial path as argument
+      + Set proper sideNav element to active and display white left-border
+    */
+    const elem = $(`#${path}`);
+     elem.addClass('active');
+     elem.css('border-left', `2px solid white`);
+  }
+  // handleNavBtnClick:: Event -> void
+  handleNavBtnClick(event): void {
     /*
       + Get the clicked sideNav element and extract id attribute to get new path
       + Loop through all sideNav elements
@@ -100,19 +76,22 @@ export class AppComponent implements OnInit {
       }
     }
   }
-  toggleMenu(): void {
-    /*
-      + Check current state of menu, show or hide accordingly
-      + Update state of sessionStorage('menuState')
-      + true: sideNav is currently open
-      + false: sideNav not currently open
-    */
-    if (this.menuState) {
-      $('.navContainer').hide();
-    } else {
-      $('.navContainer').show();
+  // handleSocialMediaBtnClick:: Event -> void
+  handleSocialMediaBtnClick(btn: string): void {
+    // btn values: instagram, googlePlus, facebook, twitter, phone
+    // no Google Plus account set yet, so alert user and do nothing
+    if (btn === 'googlePlus') {
+      alert('Google Plus Account Coming Soon!');
+      return;
     }
-    this.menuState = !this.menuState;
-    sessionStorage.setItem('menuState', this.menuState.toString());
+    // use btn string to source action url
+    const action = {
+      phone: 'tel:8446330075',
+      facebook: 'https://www.facebook.com/UnchartedRealities',
+      twitter: 'https://twitter.com/UnchartedReal',
+      instagram: 'https://www.instagram.com/UnchartedRealities/'
+    }[btn];
+    // open action url in new tab
+    window.open(action, '_blank');
   }
 }

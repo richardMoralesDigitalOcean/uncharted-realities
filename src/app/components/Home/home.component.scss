@@ -1,9 +1,9 @@
 
 @import "~bootstrap/scss/bootstrap.scss";
-//
+
 @include media-breakpoint-down(sm) {
     .experience-list p:last-child{
-         margin-bottom: 10vh;
+         margin-bottom: 20vh;
      }
      .card-title{
          text-align: center;
@@ -26,17 +26,11 @@
     }
 }
 .page-background {
-    //background: url('assets/Images/backgrounds/virtual_reality/vr_man.jpg');
     background: url('assets/Images/backgrounds/futurescape/futurescape_light.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
 }
-/*.page-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}*/
 .card-neon-border{
     border: 2px solid #86C232;
 }

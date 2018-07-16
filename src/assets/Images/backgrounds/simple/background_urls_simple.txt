@@ -1,5 +1,0 @@
-vector_blue_1: https://www.shutterstock.com/image-vector/blue-black-abstract-business-backgroundvector-design-741158293
-vector_Red: https://www.shutterstock.com/image-vector/tech-black-background-contrast-red-stripes-775100632?src=DaBpvCvca0ygfYPB44DO0A-1-31
-vector_blue_2: https://www.shutterstock.com/image-vector/abstract-metallic-blue-black-frame-design-1047066532?src=DaBpvCvca0ygfYPB44DO0A-1-55
-vector_orange: https://www.shutterstock.com/image-vector/orange-black-abstract-business-backgroundvector-design-741177460
-vector_red_2: https://www.shutterstock.com/image-vector/tech-black-background-contrast-red-stripes-773808220?src=DaBpvCvca0ygfYPB44DO0A-2-53

@@ -1,6 +1,0 @@
-arty_planet_red: https://www.shutterstock.com/image-vector/fantasy-scifi-martian-background-ui-game-275586197
-arty_planet_sepia: https://www.shutterstock.com/image-illustration/full-moon-over-mountains-lake-night-217747225
-arty_planet_1: https://www.shutterstock.com/image-illustration/3d-rendered-fantasy-alien-planet-175598207
-arty_planet_2: https://www.shutterstock.com/image-illustration/3d-created-rendered-fantasy-alien-planet-615145847
-moon_sepia: https://www.shutterstock.com/image-illustration/full-moon-over-mountains-lake-night-217747225
-arty_planet_pink_blue: https://www.shutterstock.com/image-photo/wild-alpine-peaks-rows-away-horizon-164013293

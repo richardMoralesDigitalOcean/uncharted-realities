@@ -1,5 +1,0 @@
-adventure_1: https://www.shutterstock.com/image-illustration/surreal-concept-man-rowing-boat-glowing-753489193
-adventure_2: https://www.shutterstock.com/image-illustration/boy-pulled-big-bulb-half-buried-1005938026
-adventure_3: https://www.shutterstock.com/image-illustration/night-scenery-man-rowing-boat-among-1016596177
-adventure_4: https://www.shutterstock.com/image-illustration/night-scenery-boy-running-on-blue-1032222661
-adventure_5: https://www.shutterstock.com/image-illustration/man-bicycle-standing-against-red-clouds-465449876?src=4Jg6FoTuJsZD6lwUKHNS3w-1-7

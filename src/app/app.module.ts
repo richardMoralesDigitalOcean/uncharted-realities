@@ -19,7 +19,8 @@ import { ShopProfileComponent } from './components/shop-profile/shop-profile.com
 import { ReservationComponent } from './components/Reservation/reservation.component';
 import { NewsAndEventsComponent } from './components/news-and-events/news-and-events.component';
 
-import {DocumentConverterService} from './Services/document-converter.service';
+import {DocumentService} from './Services/document.service';
+import {EmailService} from './Services/email.service';
 
 const appRoutes = [
   { path: 'home', component: HomeComponent },
@@ -57,7 +58,7 @@ const appRoutes = [
     RouterModule.forRoot(appRoutes),
     NguCarouselModule
   ],
-  providers: [WorldsPipe, DocumentConverterService],
+  providers: [WorldsPipe, DocumentService, EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

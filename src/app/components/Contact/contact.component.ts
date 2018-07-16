@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {EmailService} from '../../Services/email.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -11,30 +12,48 @@ export class ContactComponent {
   form = 'visitor'; // visitor, or vendor
   visitorForm: FormGroup;
   vendorForm: FormGroup;
+  activeForm: FormGroup;
   contactForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private emailService: EmailService) {
     this.createVisitorForm();
     this.createVendorForm();
     this.createContactForm();
+    this.activeForm = this.visitorForm;
   }
   toggleForm(formType): void {
     /*
       + Change view based on user clicking 'Visitor' or 'Vendor' button
     */
    this.form = formType;
+    switch (formType) {
+      case 'visitor':
+        this.activeForm = this.visitorForm;
+        break;
+      case 'vendor':
+        this.activeForm = this.vendorForm;
+        break;
+      default:
+        break;
+    }
   }
   createVisitorForm(): void {
     this.visitorForm = this.fb.group({
       firstName: ['', Validators.required ],
       lastName: ['', Validators.required ],
-      email: ['', Validators.required ],
+      email: ['', Validators.required],
       phone: ['', Validators.required ],
-      message: ''
-    });
+      message: '',
+    },
+    );
+
+    // EMAIL VALIDATION Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+')
+  }
+  EmailValidator() {
+
   }
   createVendorForm(): void {
     this.vendorForm = this.fb.group({
-      firstName: ['', Validators.required ],
+      firstName: ['', Validators.required],
       lastName: ['', Validators.required ],
       email: ['', Validators.required ],
       phone: ['', Validators.required ],
@@ -52,35 +71,33 @@ export class ContactComponent {
       email: ['​info@unchartedrealities.com', Validators.required ],
     });
   }
+  /*get email() { return this.activeForm.get('email'); }*/
   sendEmail(): void {
     const type = this.form;
-    let contactObj: any = null;
-    let body = '';
+    let emailObj: any = null;
     switch (type) {
       case 'vendor':
-        contactObj = this.vendorForm.value;
-        body = `From: ${contactObj.firstName + ' ' + contactObj.lastName} \n
-                Email: ${contactObj.email} \n
-                Phone: ${contactObj.phone} \n
-                Message: ${contactObj.message} \n
-                Company: ${contactObj.companyName} \n
-                Company Address: ${contactObj.companyAddress} \n
-                Product Type: ${contactObj.productType} \n
-                Subject: ${contactObj.subject} \n
-                Message: ${contactObj.message}`;
+        emailObj = Object.assign({html: ''}, this.vendorForm.value);
+        emailObj.html = `\n
+              From: ${emailObj.firstName + ' ' + emailObj.lastName} \n
+                Phone: ${emailObj.phone} \n
+                Message: ${emailObj.message} \n
+                Company: ${emailObj.companyName} \n
+                Company Address: ${emailObj.companyAddress} \n
+                Product Type: ${emailObj.productType} \n
+                Message: ${emailObj.message}`;
         break;
       case 'visitor':
-        contactObj = this.visitorForm.value;
-        body = `From: ${contactObj.firstName + ' ' + contactObj.lastName} \n
-                Email: ${contactObj.email} \n
-                Phone: ${contactObj.phone} \n
-                Message: ${contactObj.message}`;
+        emailObj = Object.assign({html: '', subject: 'Visitor Inquiry'}, this.visitorForm.value);
+        emailObj.html = `\n
+                From: ${emailObj.firstName + ' ' + emailObj.lastName} \n
+                Phone: ${emailObj.phone} \n
+                Message: ${emailObj.message}`;
         break;
       default:
         break;
     }
-    console.log('Contact Obj', contactObj);
-    console.log(body);
-    window.open(`mailto:​info@unchartedrealities.com?subject=subject&body=${body}`);
+    console.log('Contact Obj', emailObj);
+    this.emailService.sendEmail(emailObj);
   }
 }

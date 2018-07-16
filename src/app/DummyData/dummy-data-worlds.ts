@@ -1,7 +1,16 @@
+/*
+    Info Interface Notes
+    label: the label text that will be displayed on the Experience Profile
+    text:  use this when you want to have raw text displayed
+    ***OR***
+    data: use this when you have multiple items you'd like to display. An experience with multiple
+    Categories is a great example for what the data field could be used for
+    ex: {label: 'Categories', data: ['Outdoors' , 'Exploration', 'Adventure']}
+*/
 interface Info {
     label: string;
-    text?: string; // handles string
-    data?: string[]; // handles string[]
+    text?: string;
+    data?: string[];
 }
 interface Profile {
     src: string;
@@ -10,14 +19,26 @@ interface Profile {
     bio: string;
 }
 
-const resi7: Profile = {
+const experienceTemplate: Profile = {
+    title: 'Title of experience',
+    src: 'assets/Images/Path_of_Experience',
+    info: [
+        {label: 'Some Label To Display', text: 'Text to display'},
+        {label: 'A Label To Display', data: ['data1', 'data2']}
+    ],
+    bio: `Some bio text to display. The paragraphs describing the experience go here. Keep in mind
+    these are **NOT** single quotes like the rest of the strings. These are the accent mark located under your
+    escape key. This allows you to have a multi-line string without having to jump through hoops!`
+};
+
+const experience1: Profile = {
     title: 'Resident Evil 7',
     src: 'assets/Images/worlds/resi7.jpg',
     info: [
         {label: 'Developer', text: 'Capcom'},
         {label: 'Publisher', text: 'Capcom'},
         {label: 'Release Date', text: 'Jan 24, 2017'},
-        {label: 'Genre', data: ['Survival Horror', 'Action']}
+        {label: 'Genre', data: ['Survival Horror', 'Action']},
     ],
     bio: `Resident Evil 7: Biohazard is a survival horror game developed and published
     by Capcom, released in January 2017 for Windows, PlayStation 4, and Xbox One,
@@ -28,7 +49,7 @@ const resi7: Profile = {
     solving puzzles and fighting enemies. It is the first main series game to use a
     first-person view.`
 };
-const eve_valkyrie: Profile = {
+const experience2: Profile = {
     title: 'Eve Valkyrie',
     src: 'assets/Images/worlds/eve_valkyrie.jpg',
     info: [
@@ -50,7 +71,7 @@ const eve_valkyrie: Profile = {
     with PC Powerplay dubbing it "arguably the best VR experience currently available
     for the [Oculus Rift] platform."`
 };
-const lone_echo: Profile = {
+const experience3: Profile = {
     title: 'Lone Echo',
     src: 'assets/Images/worlds/loneEcho.jpg',
     info: [
@@ -66,7 +87,7 @@ const lone_echo: Profile = {
     includes a team-based multiplayer sports mode called Echo Arena, which was also
     released as a stand-alone game.`
 };
-const elder_scrolls: Profile = {
+const experience4: Profile = {
     title: 'Elder Scrolls V: Skyrim',
     src: 'assets/Images/worlds/Skyrim.png',
     info: [
@@ -88,7 +109,7 @@ const elder_scrolls: Profile = {
     predecessors by allowing the player to travel anywhere in the game world at any time,
     and to ignore or postpone the main storyline indefinitely.`
 };
-const rigs: Profile = {
+const experience5: Profile = {
     title: 'Rigs',
     src: 'assets/Images/worlds/rigs.jpg',
     info: [
@@ -110,7 +131,7 @@ const rigs: Profile = {
     of weapons loadouts, which players can use to score a Takedown by destroying an
     opposing team's Rig`
 };
-const drive_club: Profile = {
+const experience6: Profile = {
     title: 'Drive Club',
     src: 'assets/Images/worlds/driveClub.jpg',
     info: [
@@ -129,7 +150,7 @@ const drive_club: Profile = {
     or their driver, and may complete optional challenges during events.
     A weather system and day-night cycle is also included.`
 };
-const rush_of_blood: Profile = {
+const experience7: Profile = {
     title: 'Until Dawn: Rush of Blood',
     src: 'assets/Images/worlds/rushOfBlood.jpg',
     info: [
@@ -152,7 +173,7 @@ const rush_of_blood: Profile = {
       with handguns, although other weapons such as grenade launchers will be available.
       `
 };
-const batman: Profile = {
+const experience8: Profile = {
     title: 'Batman: Arkham VR',
     src: 'assets/Images/worlds/batman.png',
     info: [
@@ -174,7 +195,7 @@ const batman: Profile = {
     Batman: Arkham City and 2015's Batman: Arkham Knight, and follows Batman as he
     investigates the disappearance of his allies Nightwing and Robin.`
 };
-const hustle_kings: Profile = {
+const experience9: Profile = {
     title: 'Hustle Kings',
     src: 'assets/Images/worlds/hustleKings.png',
     info: [
@@ -201,6 +222,6 @@ const hustle_kings: Profile = {
       to be launching with the PlayStation VR headset for the PlayStation 4 on October 13.`
 };
 export const worldsDummy: Profile[] = [
-    resi7, eve_valkyrie, lone_echo, elder_scrolls, rigs,
-    drive_club, rush_of_blood, batman, hustle_kings
+    experience1, experience2, experience3, experience4, experience5, experience6,
+    experience7, experience8, experience9
 ];

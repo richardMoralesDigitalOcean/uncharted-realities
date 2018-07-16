@@ -155,8 +155,17 @@
                                         <div class="col-sm-12">
                                             <input type="text" style="text-align: center; font-size: 1.4rem;" 
                                             readonly 
-                                            class="form-control-plaintext" id="emailAddress" 
-                                            formControlName="email">
+                                            class="form-control-plaintext" id="email" 
+                                            formControlName="email" required >
+                                            <!--<div *ngIf="email.invalid && (email.dirty || email.touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="email.errors.required">
+                                                    Email is required.
+                                                </div>
+                                                <div *ngIf="email.errors.pattern">
+                                                    Email should be in format yourEmailAddress@yourEmail.com.
+                                                </div>
+                                            </div>-->
                                         </div>
                                     </div>
                                 </form>

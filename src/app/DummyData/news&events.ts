@@ -1,7 +1,7 @@
 export interface Document {
     id: string; // each document requires a unique id
     type: string; // values can be 'events' or 'news' only!
-    src: string; // the file location of the document's picture
+    imgSrc: string; // the file location of the document's picture
     date: string; // date will be printed in view exactly as it's typed here
     author: string;
     title: string;
@@ -13,7 +13,7 @@ const defaultAuthor = 'John Doe';
 const news1: Document = {
     id: 'news1',
     type: 'news',
-    src: newsDefaultSrc,
+    imgSrc: newsDefaultSrc,
     date: 'July 8, 2018',
     author: defaultAuthor,
     title: `Google's First VR Adventure based on much-beloved French film`,
@@ -32,7 +32,7 @@ const news1: Document = {
 const news2: Document = {
     id: 'news2',
     type: 'news',
-    src: newsDefaultSrc,
+    imgSrc: newsDefaultSrc,
     date: 'July 8, 2018',
     author: defaultAuthor,
     title: 'New Samsung VR Out Today',
@@ -51,7 +51,7 @@ const news2: Document = {
 const news3: Document = {
     id: 'news3',
     type: 'news',
-    src: newsDefaultSrc,
+    imgSrc: newsDefaultSrc,
     date: 'July 8, 2018',
     author: defaultAuthor,
     title: 'New Samsung VR Out Today',
@@ -70,7 +70,7 @@ const news3: Document = {
 const event1: Document = {
     id: 'event1',
     type: 'events',
-    src: eventsDefaultSrc,
+    imgSrc: eventsDefaultSrc,
     author: defaultAuthor,
     date: 'July 11, 2018',
     title: 'Uncharted Realities Event 1',
@@ -80,7 +80,7 @@ const event1: Document = {
 const event2: Document = {
     id: 'event2',
     type: 'events',
-    src: eventsDefaultSrc,
+    imgSrc: eventsDefaultSrc,
     author: defaultAuthor,
     date: 'July 11, 2018',
     title: 'Uncharted Realities Event 2',
@@ -90,7 +90,7 @@ const event2: Document = {
 const event3: Document = {
     id: 'event3',
     type: 'events',
-    src: eventsDefaultSrc,
+    imgSrc: eventsDefaultSrc,
     author: defaultAuthor,
     date: 'July 11, 2018',
     title: 'Uncharted Realities Event 3',

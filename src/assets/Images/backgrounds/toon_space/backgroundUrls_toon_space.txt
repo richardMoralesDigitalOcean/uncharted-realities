@@ -1,8 +1,0 @@
-toon_space_purple: https://www.shutterstock.com/image-vector/space-flat-vector-background-astronaut-rocket-640347271
-toon_space_rocket: https://www.shutterstock.com/image-illustration/spaceship-travel-space-illustration-rocket-flying-98858492
-toon_space_black: https://www.shutterstock.com/image-vector/vector-flat-cosmos-design-background-cute-577626442?src=OKCrIVQKTOR7z4GfDZNOhg-1-73
-toon_space_moon: https://www.shutterstock.com/image-illustration/lunar-martian-landscape-illustration-desert-background-82433773?src=FOtQSMEkf7LOOTixzvZjfA-2-6
-toon_space_1: https://www.shutterstock.com/image-vector/nature-on-another-planet-landscape-535626886
-toon_space_2: https://www.shutterstock.com/image-vector/rocket-on-desert-outer-space-landscape-534991723
-toon_space_2_alt: https://www.shutterstock.com/image-vector/landscape-desert-planet-rocket-on-space-534991795
-toon_space_moon_2: https://www.shutterstock.com/image-vector/space-desert-planet-landscape-534197368

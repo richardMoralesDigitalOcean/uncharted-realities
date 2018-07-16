@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { News, Events } from '../../Interfaces/interfaces';
-import {DocumentConverterService} from '../../Services/document-converter.service';
+import {DocumentService} from '../../Services/document.service';
 import {format, startOfDay} from 'date-fns';
 import * as compose from 'lodash/fp/compose';
 import * as $ from 'jquery';
@@ -28,7 +28,7 @@ export class NewsAndEventsComponent implements OnInit, AfterViewInit {
   numRowsEvents: number; // Total number rows in events table
   eventsNumDocsReturned: number; // Used to prevent loading when the last doc in events table already loaded
 
-  constructor(private docApi: DocumentConverterService) {
+  constructor(private docApi: DocumentService) {
     this.view = 'news';
     this.newsNumDocsReturned = 0;
     this.documents = [];

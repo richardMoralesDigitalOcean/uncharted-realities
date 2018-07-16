@@ -1,6 +1,0 @@
-vr_neon: https://www.shutterstock.com/image-vector/low-poly-virtual-reality-helmet-future-731639446?src=sov_WcoRdt88f92jRdvz5Q-1-53
-vr_wireframe_man: https://www.shutterstock.com/image-vector/wireframe-man-vr-headset-sign-mesh-748995319?src=sov_WcoRdt88f92jRdvz5Q-2-5
-vr_woman: https://www.shutterstock.com/image-photo/most-impressive-entertainment-technologies-mixed-media-643344070
-vr_man: https://www.shutterstock.com/image-photo/man-virtual-helmet-mixed-media-598315814?src=sov_WcoRdt88f92jRdvz5Q-2-72
-vr_everybody: https://www.shutterstock.com/image-vector/group-people-wearing-vr-headset-virtual-1055022383
-vr_wireframe_woman: https://www.shutterstock.com/image-vector/girl-virtual-reality-helmet-drawn-low-587978840?src=oA-ppOIcD4JbmpHzjW4aYw-1-85

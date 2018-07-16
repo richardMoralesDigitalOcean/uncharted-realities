@@ -1,9 +1,0 @@
-space_1: https://www.shutterstock.com/image-vector/gold-glitter-texture-on-black-background-349110164?src=OKCrIVQKTOR7z4GfDZNOhg-2-66
-space_3: https://www.shutterstock.com/image-photo/blue-earth-space-colorful-art-solar-755049253?src=L7zXauYyb3qwJ_vCB7pz2g-1-27
-space_4: https://www.shutterstock.com/image-photo/astronaut-outer-space-over-planet-earth-755048557
-space_5: https://www.shutterstock.com/image-photo/planets-clouds-star-dust-deep-space-753512839
-space_6: https://www.shutterstock.com/image-photo/universe-scene-planets-stars-galaxies-outer-351128261
-space_7: https://www.shutterstock.com/image-photo/deep-space-imagination-planets-stars-galaxies-601598549
-space_8: https://www.shutterstock.com/image-photo/gas-giant-planet-beauty-deep-space-569214907
-space_9: https://www.shutterstock.com/image-photo/unexplored-planets-faraway-space-deep-image-700299622
-space_10: https://www.shutterstock.com/image-photo/spooky-criminal-person-mixed-media-604027673
